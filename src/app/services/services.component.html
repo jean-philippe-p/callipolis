@@ -1,0 +1,70 @@
+<div class="row">
+  <div id="carousel-example-generic" class="carousel slide carousel-services" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active slide-services">
+        <div class="carousel-caption">
+          <h3>first</h3>
+          <p>first bla bla</p>
+        </div>
+      </div>
+      <div class="item slide-services">
+        <div class="carousel-caption">
+          <h3>second</h3>
+          <p>second bla bla</p>
+        </div>
+      </div>
+      <div class="item slide-services">
+        <div class="carousel-caption">
+          <h3>third</h3>
+          <p>third bla bla</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<div *ngFor="let service of services; index as i" class="row">
+  <div [ngSwitch]="i % 2" class="service-block block col-md-offset-2 col-md-8">
+    <div *ngSwitchCase="0">
+      <div class="col-md-3">
+        <img src="assets/Logo_linkin_park.svg" class="logo">
+      </div>
+      <div class="col-md-9 service-ltr">
+        <span [innerHTML]="service.summary"></span>
+      </div>
+      <div class="pull-down-right">
+        <a class="btn btn-default" routerLink="/services/{{service.id}}">en savoir plus</a>
+      </div>
+    </div>
+    <div *ngSwitchCase="1">
+      <div class="col-md-9 service-rtl">
+        <span [innerHTML]="service.summary"></span>
+      </div>
+      <div class="col-md-3">
+        <img src="assets/Logo_linkin_park.svg" class="logo pull-right">
+      </div>
+      <div class="pull-down-left">
+        <a class="btn btn-default" routerLink="/services/{{service.id}}">en savoir plus</a>
+      </div>
+    </div>
+  </div>
+</div>

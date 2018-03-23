@@ -1,0 +1,43 @@
+<div *ngIf="main_service">
+  <div class="row description">
+    <h2>{{main_service.title}}</h2>
+    <p [innerHTML]="main_service.text"></p>
+  </div>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="row">
+        <div *ngIf="selected_sub_service">
+          <div class="row">
+            <div class="col-md-offset-4 col-lg-2">
+              <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            </div>
+            <div class="col-lg-4" style="padding-top:25px">
+              <h2>{{selected_sub_service.title}}</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+                <p [innerHTML]="selected_sub_service.text"></p>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!selected_sub_service">
+          <div *ngFor="let sub_service of main_service.sub_services" class="col-lg-5 sub-service-block block">
+            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+            <h2>{{sub_service.title}}</h2>
+            <p [innerHTML]="sub_service.summary"></p>
+            <p><a class="btn btn-default" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">View details »</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="row">
+        <h1>CONTACT</h1>
+      </div>
+      <div *ngIf="selected_sub_service" class="row">
+        <h1>TARIF</h1>
+      </div>
+    </div>
+  </div>
+</div>

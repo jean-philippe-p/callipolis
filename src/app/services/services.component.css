@@ -1,0 +1,40 @@
+.carousel-services {
+  background-image: url("http://www.thirdeyesolutions.com/wp-content/uploads/2016/02/banner-bg-blur.jpg");
+  background-repeat: no-repeat;
+}
+
+.slide-services {
+  height: 300px;
+}
+
+.service-block {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.logo {
+  height: 140px;
+}
+
+.service-rtl {
+  direction:rtl;
+  text-align:justify;
+}
+
+.service-ltr {
+  text-align:justify;
+}
+
+.pull-down-right {
+    padding: 10px 10px 10px 10px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.pull-down-left {
+    padding: 10px 10px 10px 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

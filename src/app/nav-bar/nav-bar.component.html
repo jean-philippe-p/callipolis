@@ -6,11 +6,13 @@
           <a href="#" data-toggle="dropdown" class="hvr-underline-from-center">Service <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li *ngFor="let summary_service of summary_services" class="dropdown-submenu">
-              <a routerLink="/services/{{summary_service.id}}" class="dropdown-toggle" data-toggle="dropdown">{{summary_service.title}}</a>
+              <a routerLink="/services/{{summary_service.id}}" class="dropdown-toggle" data-toggle="dropdown">
+                <div class="link-container"><span class="link-text">{{summary_service.title}}</span></div>
+              </a>
               <ul class="dropdown-menu">
                 <li *ngFor="let sub_service of summary_service.sub_services">
-                  <a routerLink="/services/{{summary_service.id}}/sub-services/{{sub_service.id}}">
-                    {{sub_service.title}}
+                  <a routerLink="/services/{{summary_service.id}}/sub-services/{{sub_service.id}}" >
+                    <div class="link-container"><span class="link-text">{{sub_service.title}}</span></div>
                   </a>
                 </li>
               </ul>
@@ -19,5 +21,19 @@
         </li>
         <li><a routerLink="/introduce" class="hvr-underline-from-center">Qui sommes-nous ?</a></li>
         <li><a routerLink="/contact" class="hvr-underline-from-center">Contact</a></li>
+
+        <li class="dropdown">
+          <input data-toggle="dropdown" type="text" class="search-input" placeholder="Search for..." #searchBox (keyup)="search(searchBox.value)" >
+          <ul class="dropdown-menu">
+            <li *ngIf="!search_matches.length" class="disabled">
+                <a>Aucun résultats</a>
+            </li>
+            <li *ngFor="let search_match of search_matches">
+                <a routerLink="{{search_match.route}}">
+                  {{search_match.title}}
+                </a>
+            </li>
+          </ul>
+        </li>
       </ul>
     </div>

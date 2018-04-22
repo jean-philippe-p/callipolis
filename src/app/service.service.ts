@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 
-import { ShortService } from './service';
 import { MainService } from './service';
 import { Service } from './service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
 import { catchError, map, tap } from 'rxjs/operators';
 
 
@@ -19,42 +20,39 @@ export class ServiceService {
     return this.http.get<MainService[]>(this.serviceUrl);
   }
 
-  getShortServices(): Observable<ShortService[]> {
-    return this.getServices().pipe(
-      map(services => {
-        var short_service: ShortService[] = [];
-        for (let i = 0; i < services.length; i++) {
-          var service = {
-            'id': services[i].id,
-            'title': services[i].title,
-            'sub_services': []
-          };
-          if (services[i].hasOwnProperty('sub_services')) {
-            for (let j = 0; j < services[i].sub_services.length; j++) {
-              service.sub_services.push({
-                'id': services[i].sub_services[j].id,
-                'title': services[i].sub_services[j].title
-              });
-            }
-          }
-          short_service.push(service);
-        }
-        return short_service;
-      })
-    );
+  getShortServices(): Observable<MainService[]> {
+    return this.getServices();
   }
 
   getService(id: number): Observable<MainService> {
-    return this.getServices().pipe(
-      map(services => {
+    var service: MainService;
+
+    return this.getServices().map(
+      services => {
         for (let i = 0; i < services.length; i++) {
           if (services[i].id == id) {
-            return services[i];
+            service = services[i];
           }
         }
-        return null;
-      })
+        return service;
+      }
     );
+    /*.mergeMap(() =>  this.http.get(service.urlText, {responseType: 'text'}))
+    .map(html => {
+        service.text = html;
+        return service;
+      }
+    );*/
+  }
+
+  setSubServiceTexts(sub_service: Service): void {
+    this.http.get(sub_service.urlText, {responseType: 'text'}).subscribe(text => sub_service.text = text);
+    if (sub_service.hasOwnProperty('urlArticles')) {
+      this.http.get(sub_service.urlArticles, {responseType: 'text'}).subscribe(text => sub_service.articles = text);
+    }
+    if (sub_service.hasOwnProperty('urlImportant')) {
+      this.http.get(sub_service.urlImportant, {responseType: 'text'}).subscribe(text => sub_service.important = text);
+    }
   }
 
 }

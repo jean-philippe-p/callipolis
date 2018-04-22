@@ -1,42 +1,69 @@
-<div *ngIf="main_service">
-  <div class="row description">
-    <h2>{{main_service.title}}</h2>
-    <p [innerHTML]="main_service.text"></p>
+<div *ngIf="main_service" class="service">
+  <div class="row description" id="service-desciption">
+    <h1>{{main_service.title}}</h1>
+    <p [innerHTML]="main_service.summary"></p>
   </div>
   <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-9">
       <div class="row">
-        <div *ngIf="selected_sub_service">
+        <div *ngIf="selected_sub_service" class="selected-sub-service">
           <div class="row">
             <div class="col-md-offset-4 col-lg-2">
-              <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+              <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="80" height="80">
             </div>
-            <div class="col-lg-4" style="padding-top:25px">
-              <h2>{{selected_sub_service.title}}</h2>
+            <div class="col-lg-4" style="padding-top:0px;margin-left:-50px">
+              <h1>{{selected_sub_service.title}}</h1>
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 selected-sub-service-text">
                 <p [innerHTML]="selected_sub_service.text"></p>
+            </div>
+          </div>
+          <div *ngIf="selected_sub_service.articles" class="col-lg-6">
+            <div class="article">
+              <span [innerHTML]="selected_sub_service.articles"></span>
+            </div>
+          </div>
+          <div *ngIf="selected_sub_service.important" class="col-lg-6" >
+            <div class="article">
+              <span [innerHTML]="selected_sub_service.important"></span>
             </div>
           </div>
         </div>
         <div *ngIf="!selected_sub_service">
-          <div *ngFor="let sub_service of main_service.sub_services" class="col-lg-5 sub-service-block block">
-            <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>{{sub_service.title}}</h2>
-            <p [innerHTML]="sub_service.summary"></p>
-            <p><a class="btn btn-default" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">View details »</a></p>
+          <div class="col-lg-5">
+            <ng-template ngFor let-sub_service [ngForOf]="main_service.sub_services" let-i="index">
+              <div *ngIf="i<=split_index" class="col-lg-12  sub-service-block block">
+                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                <h2>{{sub_service.title}}</h2>
+                <p [innerHTML]="sub_service.summary"></p>
+                <p><a class="btn btn-default" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">View details »</a></p>
+              </div>
+            </ng-template>
+          </div>
+          <div class="col-lg-5">
+            <ng-template ngFor let-sub_service [ngForOf]="main_service.sub_services" let-i="index">
+              <div *ngIf="i>split_index" class="col-lg-12  sub-service-block block">
+                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                <h2>{{sub_service.title}}</h2>
+                <p [innerHTML]="sub_service.summary"></p>
+                <p><a class="btn btn-default" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">View details »</a></p>
+              </div>
+            </ng-template>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-4">
-      <div class="row">
-        <h1>CONTACT</h1>
-      </div>
-      <div *ngIf="selected_sub_service" class="row">
-        <h1>TARIF</h1>
+    <div class="col-lg-3">
+      <!--<div data-spy="affix" data-offset-top="400" id="contact-form">-->
+      <div id="contact-form">
+        <div class="row">
+          <div class="col-lg-12"><h1>CONTACT</h1></div>
+        </div>
+        <div *ngIf="selected_sub_service" class="row">
+          <div class="col-lg-12"><h1>TARIF</h1></div>
+        </div>
       </div>
     </div>
   </div>

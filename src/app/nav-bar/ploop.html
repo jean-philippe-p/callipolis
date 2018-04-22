@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.one {
+    width: 175px;
+    background: red;
+    padding: 10px;
+    background: red;
+}
+
+.inter {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  background: -webkit-linear-gradient(0.125turn, #000, rgba(0,0,0,0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.move {
+    position: relative;
+    white-space: nowrap;
+}
+
+</style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+
+<p>Play the animation backwards first, then forwards:</p>
+<div class='one'>
+  <div class='inter'>
+    <span class='move'>
+        0 lalalalal alala lalalal lalalalala lalalal lala lalalal lalalalala lalalal lala lalalal lalalalala lalalal lalalala
+    </span>
+  </div>
+    <div class='inter'>
+      <span class='move'>
+          1 alal lala lalalal lalalalala lalalal lala lalalal lalalalala lalalal lalalala
+      </span>
+    </div>
+    <div class='inter'>
+      <span class='move'>
+          0 lallal alala
+      </span>
+    </div>
+</div>
+<p><strong>Note:</strong> The animation-direction property is not supported in Internet Explorer 9 and earlier versions.</p>
+
+<script>
+$( ".move" )
+  .mouseover(function() {
+    console.log($( this ).width());
+    console.log($( this ).parent().width());
+
+    endPosition = '-' + ($( this ).width() - $( this ).parent().width()) + 'px';
+    console.log(endPosition);
+    $(this).animate({'margin-left': endPosition});
+  })
+  .mouseout(function() {
+  $(this).animate({'margin-left': '0px'});
+  });
+
+</script>
+
+
+</body>
+</html>

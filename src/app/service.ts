@@ -1,12 +1,15 @@
-export class ShortService {
+export class Service {
   id: number;
   title: string;
-}
-
-export class Service extends ShortService {
   summary: string;
   text: string;
   logo: string;
+  articles: string;
+  urlArticles: string;
+  important: string;
+  urlImportant: string;
+  urlText: string;
+  keyWords: string[] = [];
 }
 
 export class MainService extends Service {

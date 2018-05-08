@@ -10,7 +10,7 @@
                 <div class="link-container"><span class="link-text">{{summary_service.title}}</span></div>
               </a>
               <ul class="dropdown-menu">
-                <li *ngFor="let sub_service of summary_service.sub_services">
+                <li *ngFor="let sub_service of summary_service.subServices">
                   <a routerLink="/services/{{summary_service.id}}/sub-services/{{sub_service.id}}" >
                     <div class="link-container"><span class="link-text">{{sub_service.title}}</span></div>
                   </a>

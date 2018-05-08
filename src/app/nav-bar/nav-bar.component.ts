@@ -16,8 +16,8 @@ export class NavBarComponent implements OnInit {
   constructor(private serviceService: ServiceService) { }
 
   ngOnInit() {
-    this.serviceService.getShortServices().subscribe(short_services => {
-      this.summary_services = short_services;
+    this.serviceService.getNavBarElements().subscribe(navbar_elements => {
+      this.summary_services = navbar_elements.services;
       $(document).ready(function(){
         $( ".link-text" )
           .mouseover(function() {
@@ -37,12 +37,12 @@ export class NavBarComponent implements OnInit {
     this.search_matches = [];
     if (search.length > 2) {
       for (let i = 0; i < this.summary_services.length; i++) {
-        for (let j = 0; j < this.summary_services[i].sub_services.length; j++) {
-          for (let k = 0; k < this.summary_services[i].sub_services[j].keyWords.length; k++) {
-            if (this.summary_services[i].sub_services[j].keyWords[k].includes(search)) {
+        for (let j = 0; j < this.summary_services[i].subServices.length; j++) {
+          for (let k = 0; k < this.summary_services[i].subServices[j].keyWords.length; k++) {
+            if (this.summary_services[i].subServices[j].keyWords[k].includes(search)) {
               this.search_matches.push({
-                route: "/services/" + this.summary_services[i].id + "/sub-services/" + this.summary_services[i].sub_services[j].id,
-                title: this.summary_services[i].sub_services[j].title
+                route: "/services/" + this.summary_services[i].id + "/sub-services/" + this.summary_services[i].subServices[j].id,
+                title: this.summary_services[i].subServices[j].title
               });
               break;
             }

@@ -12,47 +12,36 @@ import { catchError, map, tap } from 'rxjs/operators';
 @Injectable()
 export class ServiceService {
 
-  private serviceUrl: string = 'assets/services.json';
+  private serviceUrl: string = 'http://localhost/api';
 
   constructor(private http: HttpClient,) { }
 
-  getServices(): Observable<MainService[]> {
-    return this.http.get<MainService[]>(this.serviceUrl);
+  getNavBarElements(): Observable<any> {
+    return this.http.get<MainService[]>(this.serviceUrl + '/navbar');
   }
 
-  getShortServices(): Observable<MainService[]> {
-    return this.getServices();
+  getServices(): Observable<MainService[]> {
+    return this.http.get<MainService[]>(this.serviceUrl + '/MainServices');
   }
 
   getService(id: number): Observable<MainService> {
     var service: MainService;
 
-    return this.getServices().map(
-      services => {
-        for (let i = 0; i < services.length; i++) {
-          if (services[i].id == id) {
-            service = services[i];
-          }
-        }
+    return this.http.get<MainService>(this.serviceUrl + '/MainService/' + id).map(
+      service_res => {
+        service = service_res;
+        return service;
+      }
+    ).mergeMap(() =>  this.http.get<Service[]>(this.serviceUrl + '/SubServices/' + id))
+    .map(sub_services => {
+        service.subServices = sub_services;
         return service;
       }
     );
-    /*.mergeMap(() =>  this.http.get(service.urlText, {responseType: 'text'}))
-    .map(html => {
-        service.text = html;
-        return service;
-      }
-    );*/
   }
 
-  setSubServiceTexts(sub_service: Service): void {
-    this.http.get(sub_service.urlText, {responseType: 'text'}).subscribe(text => sub_service.text = text);
-    if (sub_service.hasOwnProperty('urlArticles')) {
-      this.http.get(sub_service.urlArticles, {responseType: 'text'}).subscribe(text => sub_service.articles = text);
-    }
-    if (sub_service.hasOwnProperty('urlImportant')) {
-      this.http.get(sub_service.urlImportant, {responseType: 'text'}).subscribe(text => sub_service.important = text);
-    }
+  getSubService(id: number): Observable<Service> {
+    return this.http.get<Service>(this.serviceUrl + '/SubService/' + id);
   }
 
 }

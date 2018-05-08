@@ -51,19 +51,7 @@ export class ServiceComponent implements OnInit, DoCheck {
       const sub_id: number = +this.route.snapshot.paramMap.get('sub-id');
 
       if (!this.selected_sub_service || this.selected_sub_service.id !== sub_id) {
-        this.selected_sub_service = null;
-
-        for (let i = 0; i < this.main_service.sub_services.length; i++) {
-          if (this.main_service.sub_services[i].id == sub_id) {
-            this.selected_sub_service = this.main_service.sub_services[i];
-            if (!this.selected_sub_service.text) {
-              this.serviceService.setSubServiceTexts(this.selected_sub_service);
-            }
-          }
-        }
-        if (this.selected_sub_service === null) {
-        // TODO manage not found resource
-        }
+        this.serviceService.getSubService(sub_id).subscribe(sub_service => this.selected_sub_service = sub_service);
       }
     } else {
       this.selected_sub_service = null;
@@ -78,17 +66,17 @@ export class ServiceComponent implements OnInit, DoCheck {
   setSplitIndex() {
     this.split_index = 0;
     var current_text_legnth = 0;
-    for (let i = 0; i < this.main_service.sub_services.length; i++) {
-      current_text_legnth += this.main_service.sub_services[i].summary.length + this.offset_lenght;
+    for (let i = 0; i < this.main_service.subServices.length; i++) {
+      current_text_legnth += this.main_service.subServices[i].summary.length + this.offset_lenght;
     }
     var total_text_legnth = current_text_legnth;
     var current_text_legnth = 0;
-    for (let i = 0; i < this.main_service.sub_services.length; i++) {
-      current_text_legnth += this.main_service.sub_services[i].summary.length + this.offset_lenght;
+    for (let i = 0; i < this.main_service.subServices.length; i++) {
+      current_text_legnth += this.main_service.subServices[i].summary.length + this.offset_lenght;
       if (current_text_legnth > total_text_legnth / 2) {
         var middle_split = total_text_legnth / 2;
         var high_split = current_text_legnth;
-        var low_split = current_text_legnth - this.main_service.sub_services[i].summary.length;
+        var low_split = current_text_legnth - this.main_service.subServices[i].summary.length;
         this.split_index = high_split - middle_split < middle_split - low_split ? i : Math.max(0, i - 1);
         break;
       }
@@ -98,12 +86,12 @@ export class ServiceComponent implements OnInit, DoCheck {
   setContactTop() {
     //var headerHeight = $('service-desciption').outerHeight(true);
     //var footerHeight = $('footer').outerHeight() + 60;
-    (<any>$('#contact-form')).affix({
+    /*(<any>$('#contact-form')).affix({
       offset: {
         top: 200//,
         //bottom: footerHeight
       }
-    });
+    });*/
   }
 
 }

@@ -1,23 +1,31 @@
 <div *ngIf="main_service" class="service">
   <div class="row description" id="service-desciption">
-    <h1>{{main_service.title}}</h1>
-    <p [innerHTML]="main_service.summary"></p>
+    <h1 style="color:#586B6B;">{{main_service.title}}</h1>
+    <p [innerHTML]="main_service.summary" style="color:#65656A;"></p>
   </div>
   <div class="row">
     <div class="col-lg-9">
       <div class="row">
         <div *ngIf="selected_sub_service" class="selected-sub-service">
           <div class="row">
-            <div class="col-md-offset-4 col-lg-2">
-              <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="80" height="80">
-            </div>
-            <div class="col-lg-4" style="padding-top:0px;margin-left:-50px">
-              <h1>{{selected_sub_service.title}}</h1>
+            <div class="float-center">
+              <div class="child">
+                <div style="float:left">
+                  <img class="img-circle"
+                        [ngStyle]="{'backgroundColor': selected_sub_service.color}"
+                        src="{{getLogoUrl(selected_sub_service)}}"
+                        alt="Generic placeholder image" width="80" height="80"
+                  >
+                  </div>
+                    <div style="float:left;padding-left:20px;">
+                    <h1 style="color:#1B1023;">{{selected_sub_service.title}}</h1>
+                  </div>
+              </div>
             </div>
           </div>
           <div class="row">
             <div class="col-lg-12 selected-sub-service-text">
-                <p [innerHTML]="selected_sub_service.text"></p>
+                <p [innerHTML]="selected_sub_service.text" style="color:#373737;"></p>
             </div>
           </div>
           <div *ngIf="selected_sub_service.articles" class="col-lg-6">
@@ -26,7 +34,7 @@
             </div>
           </div>
           <div *ngIf="selected_sub_service.important" class="col-lg-6" >
-            <div class="article">
+            <div class="important">
               <span [innerHTML]="selected_sub_service.important"></span>
             </div>
           </div>
@@ -35,20 +43,28 @@
           <div class="col-lg-5">
             <ng-template ngFor let-sub_service [ngForOf]="main_service.subServices" let-i="index">
               <div *ngIf="i<=split_index" class="col-lg-12  sub-service-block block">
-                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                <h2>{{sub_service.title}}</h2>
-                <p [innerHTML]="sub_service.summary"></p>
-                <p><a class="btn btn-default" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">View details »</a></p>
+                <img class="img-circle"
+                  [ngStyle]="{'backgroundColor': sub_service.color}"
+                  src="{{getLogoUrl(sub_service)}}"
+                  alt="Generic placeholder image" width="140" height="140"
+                >
+                <h2 style="color:#1B1023;">{{sub_service.title}}</h2>
+                <p [innerHTML]="sub_service.summary" style="color:#1B1023;"></p>
+                <p><a class="btn btn-default btn-details" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">En savoir plus »</a></p>
               </div>
             </ng-template>
           </div>
           <div class="col-lg-5">
             <ng-template ngFor let-sub_service [ngForOf]="main_service.subServices" let-i="index">
               <div *ngIf="i>split_index" class="col-lg-12  sub-service-block block">
-                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                <h2>{{sub_service.title}}</h2>
-                <p [innerHTML]="sub_service.summary"></p>
-                <p><a class="btn btn-default" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">View details »</a></p>
+                <img class="img-circle"
+                  [ngStyle]="{'backgroundColor': sub_service.color}"
+                  src="{{getLogoUrl(sub_service)}}"
+                  alt="Generic placeholder image" width="140" height="140"
+                >
+                <h2 style="color:#1B1023;">{{sub_service.title}}</h2>
+                <p [innerHTML]="sub_service.summary" style="color:#1B1023;"></p>
+                <p><a class="btn btn-default btn-details" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">En savoir plus »</a></p>
               </div>
             </ng-template>
           </div>

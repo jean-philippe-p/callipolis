@@ -8,12 +8,14 @@
 }
 
 .service-block {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .logo {
   height: 140px;
+  width: 140px;
+  object-fit: cover;
 }
 
 .service-rtl {
@@ -28,13 +30,13 @@
 .pull-down-right {
     padding: 10px 10px 10px 10px;
     position: absolute;
-    bottom: 0;
+    bottom: -20px;
     right: 0;
 }
 
 .pull-down-left {
     padding: 10px 10px 10px 10px;
     position: absolute;
-    bottom: 0;
+    bottom: -20px;
     left: 0;
 }

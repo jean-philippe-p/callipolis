@@ -1,0 +1,24 @@
+.block {
+  padding: 10px;
+
+  color: rgb(119, 119, 119);
+  font-family: "canada-type-gibson", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.btn-details {
+  background-color: #266B6B;
+}
+
+.float-center {
+  float: right;
+  position: relative;
+  left: -50%; /* or right 50% */
+  text-align: left;
+}
+.float-center > .child {
+  position: relative;
+  left: 50%;
+}

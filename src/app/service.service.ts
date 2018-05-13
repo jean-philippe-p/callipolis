@@ -17,7 +17,7 @@ export class ServiceService {
   constructor(private http: HttpClient,) { }
 
   getNavBarElements(): Observable<any> {
-    return this.http.get<MainService[]>(this.serviceUrl + '/navbar');
+    return this.http.get<MainService[]>(this.serviceUrl + '/Navbar');
   }
 
   getServices(): Observable<MainService[]> {
@@ -42,6 +42,10 @@ export class ServiceService {
 
   getSubService(id: number): Observable<Service> {
     return this.http.get<Service>(this.serviceUrl + '/SubService/' + id);
+  }
+
+  getLogoUrl(serviceId: number): string {
+    return this.serviceUrl + '/Logo/' + serviceId;
   }
 
 }

@@ -1,5 +1,5 @@
 .custom-header {
-    background-color: #FFFFFF;
+    background-color: #8BBF9B;
     height: 100px;
 }
 
@@ -14,6 +14,7 @@
 }
 
 .navbar.navbar-default {
+  background-color:#3A5555;
   margin-bottom: 0px;
   border-radius: 0px;
   border: 0;
@@ -106,3 +107,9 @@ a.socialIcon:hover, .socialHoverClass {
 a {
  background-color: #D3D3D3;
 }
+
+/*
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Merriweather Sans', sans-serif;
+    font-family: 'Julius Sans One', sans-serif;
+*/

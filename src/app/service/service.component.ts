@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './service.component.html',
   styleUrls: [
     './service.component.css',
-    '../block.component.css'
+    '../callipolis.component.css'
   ]
 })
 export class ServiceComponent implements OnInit, DoCheck {
@@ -81,6 +81,11 @@ export class ServiceComponent implements OnInit, DoCheck {
         break;
       }
     }
+  }
+
+  getLogoUrl(service: Service): string {
+    console.log(this.serviceService.getLogoUrl(service.logo));
+    return this.serviceService.getLogoUrl(service.logo);
   }
 
   setContactTop() {

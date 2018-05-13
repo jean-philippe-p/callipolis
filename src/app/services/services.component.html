@@ -46,24 +46,34 @@
   <div [ngSwitch]="i % 2" class="service-block block col-md-offset-2 col-md-8">
     <div *ngSwitchCase="0">
       <div class="col-md-3">
-        <img src="assets/Logo_linkin_park.svg" class="logo">
+        <div class="float-center">
+          <img class="img-circle logo child"
+                [ngStyle]="{'backgroundColor': service.color}"
+                src="{{getLogoUrl(service)}}"
+          >
+        </div>
       </div>
       <div class="col-md-9 service-ltr">
-        <span [innerHTML]="service.summary"></span>
+        <span [innerHTML]="service.summary" style="color:#1B1023;"></span>
       </div>
       <div class="pull-down-right">
-        <a class="btn btn-default" routerLink="/services/{{service.id}}">en savoir plus</a>
+        <a class="btn btn-default btn-details" routerLink="/services/{{service.id}}">En savoir plus</a>
       </div>
     </div>
     <div *ngSwitchCase="1">
       <div class="col-md-9 service-rtl">
-        <span [innerHTML]="service.summary"></span>
+        <span [innerHTML]="service.summary" style="color:#1B1023;"></span>
       </div>
       <div class="col-md-3">
-        <img src="assets/Logo_linkin_park.svg" class="logo pull-right">
+        <div class="float-center">
+          <img class="img-circle logo child"
+                [ngStyle]="{'backgroundColor': service.color}"
+                src="{{getLogoUrl(service)}}"
+          >
+        </div>
       </div>
       <div class="pull-down-left">
-        <a class="btn btn-default" routerLink="/services/{{service.id}}">en savoir plus</a>
+        <a class="btn btn-default btn-details" routerLink="/services/{{service.id}}">En savoir plus</a>
       </div>
     </div>
   </div>

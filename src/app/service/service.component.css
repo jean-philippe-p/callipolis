@@ -25,12 +25,32 @@
   overflow: hidden;
   padding: 25px;
 
-  color: rgb(119, 119, 119);
+  color: #1B1023;
   font-family: "canada-type-gibson", Arial, sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 28px;
   border-radius: 15px;
+
+  background-color: #798C91;
+}
+
+.important {
+  height:300px;
+  overflow:scroll;
+  overflow-x:hidden;
+  box-shadow: 1px 1px 12px #555;
+  overflow: hidden;
+  padding: 25px;
+
+  color: #1B1023;
+  font-family: "canada-type-gibson", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 28px;
+  border-radius: 15px;
+
+  background-color: #798C91;
 }
 
 
@@ -51,4 +71,8 @@
 .affix {
   top: 70px;
   z-index: 9999;
+}
+
+img {
+    object-fit: cover;
 }

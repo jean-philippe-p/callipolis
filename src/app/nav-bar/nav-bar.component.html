@@ -23,7 +23,7 @@
         <li><a routerLink="/contact" class="hvr-underline-from-center">Contact</a></li>
 
         <li class="dropdown">
-          <input data-toggle="dropdown" type="text" class="search-input" placeholder="Search for..." #searchBox (keyup)="search(searchBox.value)" >
+          <input data-toggle="dropdown" type="text" class="search-input" placeholder="Recherche..." #searchBox (keyup)="search(searchBox.value)" >
           <ul class="dropdown-menu">
             <li *ngIf="!search_matches.length" class="disabled">
                 <a>Aucun résultats</a>

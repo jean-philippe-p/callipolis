@@ -3,7 +3,8 @@ export class Service {
   title: string;
   summary: string;
   text: string;
-  logo: string;
+  logo: number;
+  color: string;
   articles: string;
   important: string;
   keyWords: string[] = [];

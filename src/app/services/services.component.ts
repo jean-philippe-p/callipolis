@@ -22,7 +22,6 @@ export class ServicesComponent implements OnInit {
   }
 
   getLogoUrl(service: MainService): string {
-    console.log(this.serviceService.getLogoUrl(service.logo));
     return this.serviceService.getLogoUrl(service.logo);
   }
 

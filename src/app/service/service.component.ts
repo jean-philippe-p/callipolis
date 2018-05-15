@@ -51,7 +51,9 @@ export class ServiceComponent implements OnInit, DoCheck {
       const sub_id: number = +this.route.snapshot.paramMap.get('sub-id');
 
       if (!this.selected_sub_service || this.selected_sub_service.id !== sub_id) {
-        this.serviceService.getSubService(sub_id).subscribe(sub_service => this.selected_sub_service = sub_service);
+        this.serviceService.getSubService(sub_id).subscribe(sub_service => {
+          this.selected_sub_service = sub_service;
+        });
       }
     } else {
       this.selected_sub_service = null;
@@ -65,18 +67,18 @@ export class ServiceComponent implements OnInit, DoCheck {
    */
   setSplitIndex() {
     this.split_index = 0;
-    var current_text_legnth = 0;
+    let current_text_length = 0;
     for (let i = 0; i < this.main_service.subServices.length; i++) {
-      current_text_legnth += this.main_service.subServices[i].summary.length + this.offset_lenght;
+      current_text_length += this.main_service.subServices[i].summary.length + this.offset_lenght;
     }
-    var total_text_legnth = current_text_legnth;
-    var current_text_legnth = 0;
+    const total_text_length = current_text_length;
+    current_text_length = 0;
     for (let i = 0; i < this.main_service.subServices.length; i++) {
-      current_text_legnth += this.main_service.subServices[i].summary.length + this.offset_lenght;
-      if (current_text_legnth > total_text_legnth / 2) {
-        var middle_split = total_text_legnth / 2;
-        var high_split = current_text_legnth;
-        var low_split = current_text_legnth - this.main_service.subServices[i].summary.length;
+      current_text_length += this.main_service.subServices[i].summary.length + this.offset_lenght;
+      if (current_text_length > total_text_length / 2) {
+        const middle_split = total_text_length / 2;
+        const high_split = current_text_length;
+        const low_split = current_text_length - this.main_service.subServices[i].summary.length;
         this.split_index = high_split - middle_split < middle_split - low_split ? i : Math.max(0, i - 1);
         break;
       }
@@ -84,13 +86,12 @@ export class ServiceComponent implements OnInit, DoCheck {
   }
 
   getLogoUrl(service: Service): string {
-    console.log(this.serviceService.getLogoUrl(service.logo));
     return this.serviceService.getLogoUrl(service.logo);
   }
 
   setContactTop() {
-    //var headerHeight = $('service-desciption').outerHeight(true);
-    //var footerHeight = $('footer').outerHeight() + 60;
+    // const headerHeight = $('service-desciption').outerHeight(true);
+    // const footerHeight = $('footer').outerHeight() + 60;
     /*(<any>$('#contact-form')).affix({
       offset: {
         top: 200//,

@@ -22,7 +22,7 @@ export class NavBarComponent implements OnInit {
         $( ".link-text" )
           .mouseover(function() {
             var duration = Math.max(0, 77 * $( this ).text().length - 1307);
-            var endPosition = '-' + ($( this ).width() - $( this ).parent().width()) + 'px';
+            var endPosition = '-' + ($( this ).width() - $( this ).parent().width() + 5) + 'px';
             $(this).animate({'margin-left': endPosition}, duration);
           })
           .mouseout(function() {

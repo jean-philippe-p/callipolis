@@ -15,7 +15,7 @@
 .logo {
   height: 140px;
   width: 140px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .service-rtl {

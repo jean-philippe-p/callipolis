@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { ServicesComponent } from './services/services.component';
 import { ServiceService } from './service.service';
 import { ContactService } from './contact.service';
+import { IntroduceService } from './introduce.service';
 import { ServiceComponent } from './service/service.component';
 import { SubServiceComponent } from './sub-service/sub-service.component';
 import { IntroduceComponent } from './introduce/introduce.component';
@@ -36,7 +37,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [ServiceService, ContactService],
+  providers: [ServiceService, ContactService, IntroduceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

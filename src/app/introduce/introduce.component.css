@@ -1,0 +1,21 @@
+.article {
+  max-height:300px;
+  overflow:scroll;
+  overflow-x:hidden;
+  overflow: hidden;
+  padding: 25px;
+
+  box-shadow: 1px 1px 12px #555;
+  border-radius: 15px;
+}
+
+.important {
+  max-height:300px;
+  overflow:scroll;
+  overflow-x:hidden;
+  overflow: hidden;
+  padding: 25px;
+
+  box-shadow: 1px 1px 12px #555;
+  border-radius: 15px;
+}

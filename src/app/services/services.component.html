@@ -54,7 +54,7 @@
         </div>
       </div>
       <div class="col-md-9 service-ltr">
-        <span [innerHTML]="service.summary" style="color:#1B1023;"></span>
+        <span [innerHTML]="service.summary"></span>
       </div>
       <div class="pull-down-right">
         <a class="btn btn-default btn-details" routerLink="/services/{{service.id}}">En savoir plus</a>
@@ -62,7 +62,7 @@
     </div>
     <div *ngSwitchCase="1">
       <div class="col-md-9 service-rtl">
-        <span [innerHTML]="service.summary" style="color:#1B1023;"></span>
+        <span [innerHTML]="service.summary"></span>
       </div>
       <div class="col-md-3">
         <div class="float-center">

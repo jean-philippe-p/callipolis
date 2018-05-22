@@ -1,7 +1,7 @@
 <div *ngIf="main_service" class="service">
   <div class="row description" id="service-desciption">
-    <h1 style="color:#586B6B;">{{main_service.title}}</h1>
-    <p [innerHTML]="main_service.summary" style="color:#65656A;"></p>
+    <h1>{{main_service.title}}</h1>
+    <div [innerHTML]="main_service.summary"></div>
   </div>
   <div class="row">
     <div class="col-lg-9">
@@ -18,14 +18,14 @@
                   >
                   </div>
                     <div style="float:left;padding-left:20px;">
-                    <h1 style="color:#1B1023;">{{selected_sub_service.title}}</h1>
+                    <h3 style="color:#1B1023;">{{selected_sub_service.title}}</h3>
                   </div>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-lg-12 selected-sub-service-text">
-                <p [innerHTML]="selected_sub_service.text" style="color:#373737;"></p>
+                <span [innerHTML]="selected_sub_service.text"></span>
             </div>
           </div>
           <div *ngIf="selected_sub_service.articles" class="col-lg-6">
@@ -48,8 +48,8 @@
                   src="{{getLogoUrl(sub_service)}}"
                   alt="Generic placeholder image" width="140" height="140"
                 >
-                <h2 style="color:#1B1023;">{{sub_service.title}}</h2>
-                <p [innerHTML]="sub_service.summary" style="color:#1B1023;"></p>
+                <h2>{{sub_service.title}}</h2>
+                <div [innerHTML]="sub_service.summary"></div>
                 <p><a class="btn btn-default btn-details" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">En savoir plus »</a></p>
               </div>
             </ng-template>
@@ -62,8 +62,8 @@
                   src="{{getLogoUrl(sub_service)}}"
                   alt="Generic placeholder image" width="140" height="140"
                 >
-                <h2 style="color:#1B1023;">{{sub_service.title}}</h2>
-                <p [innerHTML]="sub_service.summary" style="color:#1B1023;"></p>
+                <h2>{{sub_service.title}}</h2>
+                <div [innerHTML]="sub_service.summary"></div>
                 <p><a class="btn btn-default btn-details" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">En savoir plus »</a></p>
               </div>
             </ng-template>

@@ -14,7 +14,7 @@ export class ServiceService {
 
   private serviceUrl: string = 'https://www.callipolis-investigation.fr/api';
 
-  constructor(private http: HttpClient,) { }
+  constructor(private http: HttpClient) { }
 
   getNavBarElements(): Observable<any> {
     return this.http.get<MainService[]>(this.serviceUrl + '/Navbar');

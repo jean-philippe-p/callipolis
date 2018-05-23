@@ -1,15 +1,18 @@
 <div *ngIf="introduce">
-	<h1>{{introduce.title}}</h1>
-	<div [innerHTML]="introduce.text"></div>
-	
-	<div *ngIf="introduce.articles" class="col-lg-6">
-	  <div class="article">
-	    <span [innerHTML]="introduce.articles"></span>
-	  </div>
-	</div>
-	<div *ngIf="introduce.important" class="col-lg-6" >
-	  <div class="important">
-	    <span [innerHTML]="introduce.important"></span>
-	  </div>
-	</div>
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>{{introduce.title}}</h1>
+      <div [innerHTML]="introduce.text"></div>
+    </div>
+  </div>
+  <div *ngIf="introduce.articles" class="col-lg-6">
+    <div class="article">
+      <span [innerHTML]="introduce.articles"></span>
+    </div>
+  </div>
+  <div *ngIf="introduce.important" class="col-lg-6" >
+    <div class="important">
+      <span [innerHTML]="introduce.important"></span>
+    </div>
+  </div>
 </div>

@@ -8,8 +8,8 @@
 }
 
 .service-block {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .logo {
@@ -18,25 +18,16 @@
   object-fit: contain;
 }
 
-.service-rtl {
-  direction:rtl;
-  text-align:justify;
-}
-
-.service-ltr {
-  text-align:justify;
-}
-
 .pull-down-right {
     padding: 10px 10px 10px 10px;
     position: absolute;
-    bottom: -20px;
+    bottom: -30px;
     right: 0;
 }
 
 .pull-down-left {
     padding: 10px 10px 10px 10px;
     position: absolute;
-    bottom: -20px;
+    bottom: -30px;
     left: 0;
 }

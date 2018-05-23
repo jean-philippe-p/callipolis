@@ -13,5 +13,9 @@ export class IntroduceService {
   getIntroduce(id: number): Observable<Introduce> {
     return this.http.get<Introduce>(this.serviceUrl + '/Introduce/' + id);
   }
+  
+  getFooterIntroduces(): Observable<Introduce[]> {
+    return this.http.get<Introduce[]>(this.serviceUrl + '/FooterIntroduces');
+  }
 
 }

@@ -1,9 +1,14 @@
 .block {
-  padding: 10px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 1px 1px 12px #555;
 }
 
-.btn-details {
-  /*background-color: #266B6B;*/
+.side-block {
+  border-radius: 15px;
+  box-shadow: 1px 1px 12px #555;
+  margin: 5px;
+  padding-bottom: 20px;
 }
 
 .float-center {
@@ -12,7 +17,7 @@
   left: -50%; /* or right 50% */
   text-align: left;
 }
-.float-center > .child {
+.float-center > div {
   position: relative;
   left: 50%;
 }

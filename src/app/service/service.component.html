@@ -9,7 +9,7 @@
         <div *ngIf="selected_sub_service" class="selected-sub-service">
           <div class="row">
             <div class="float-center">
-              <div class="child">
+              <div>
                 <div style="float:left">
                   <img class="img-circle"
                         [ngStyle]="{'backgroundColor': selected_sub_service.color}"
@@ -24,7 +24,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-12 selected-sub-service-text">
+            <div class="col-lg-12">
                 <span [innerHTML]="selected_sub_service.text"></span>
             </div>
           </div>
@@ -50,7 +50,7 @@
                 >
                 <h2>{{sub_service.title}}</h2>
                 <div [innerHTML]="sub_service.summary"></div>
-                <p><a class="btn btn-default btn-details" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">En savoir plus »</a></p>
+                <p><a class="btn btn-default" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">En savoir plus »</a></p>
               </div>
             </ng-template>
           </div>
@@ -64,7 +64,7 @@
                 >
                 <h2>{{sub_service.title}}</h2>
                 <div [innerHTML]="sub_service.summary"></div>
-                <p><a class="btn btn-default btn-details" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">En savoir plus »</a></p>
+                <p><a class="btn btn-default" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">En savoir plus »</a></p>
               </div>
             </ng-template>
           </div>
@@ -77,8 +77,14 @@
         <div *ngIf="main_service" class="row">
           <app-contact-form [mainService]="main_service" [subService]="selected_sub_service"></app-contact-form>
         </div>
-        <div *ngIf="selected_sub_service" class="row">
-          <div class="col-lg-12"><h1>TARIF</h1></div>
+        <div *ngIf="selected_sub_service" class="row" style="margin-top: 20px">
+          <div class="row side-block">
+            <div class="col-lg-12">
+              <h1>TARIF</h1>
+              <p *ngIf="selected_sub_service.rate">{{selected_sub_service.rate}}€/heure</p>
+              <p *ngIf="!selected_sub_service.rate">A déterminer après devis</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

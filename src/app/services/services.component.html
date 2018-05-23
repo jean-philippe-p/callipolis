@@ -43,38 +43,33 @@
 </div>
 
 <div *ngFor="let service of services; index as i" class="row">
-  <div [ngSwitch]="i % 2" class="service-block block col-md-offset-2 col-md-8">
-    <div *ngSwitchCase="0">
-      <div class="col-md-3">
-        <div class="float-center">
-          <img class="img-circle logo child"
-                [ngStyle]="{'backgroundColor': service.color}"
-                src="{{getLogoUrl(service)}}"
+  <div class="service-block block col-md-offset-2 col-md-8">
+    <div class="media">
+      <div *ngIf="i % 2 === 0" class="media-left media-middle">
+        <a href="#">
+          <img class="media-object img-circle logo"
+              [ngStyle]="{'backgroundColor': service.color}"
+              src="{{getLogoUrl(service)}}"
           >
+        </a>
+      </div>
+      <div class="media-body">
+	    <span [innerHTML]="service.summary" style="text-align:justify;"></span>
+	    <div>
+        <div [ngClass]="i % 2 === 0 ? 'pull-right' : 'pull-left'">
+          <a class="btn btn-default" routerLink="/services/{{service.id}}">En savoir plus</a>
         </div>
-      </div>
-      <div class="col-md-9 service-ltr">
-        <span [innerHTML]="service.summary"></span>
-      </div>
-      <div class="pull-down-right">
-        <a class="btn btn-default btn-details" routerLink="/services/{{service.id}}">En savoir plus</a>
-      </div>
-    </div>
-    <div *ngSwitchCase="1">
-      <div class="col-md-9 service-rtl">
-        <span [innerHTML]="service.summary"></span>
-      </div>
-      <div class="col-md-3">
-        <div class="float-center">
-          <img class="img-circle logo child"
-                [ngStyle]="{'backgroundColor': service.color}"
-                src="{{getLogoUrl(service)}}"
+        </div>
+	  </div>
+      <div *ngIf="i % 2 === 1" class="media-right media-middle">
+        <a href="#">
+          <img class="media-object img-circle logo"
+              [ngStyle]="{'backgroundColor': service.color}"
+              src="{{getLogoUrl(service)}}"
           >
-        </div>
-      </div>
-      <div class="pull-down-left">
-        <a class="btn btn-default btn-details" routerLink="/services/{{service.id}}">En savoir plus</a>
+        </a>
       </div>
     </div>
   </div>
 </div>
+

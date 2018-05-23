@@ -8,11 +8,11 @@
 <div class="custom-header">
     <img src="assets/logo.png" style="height:200px">
     <div class="pull-right">
-      <app-social></app-social>
-      <div class="pull-right" style="direction:rtl;padding-right:20px;">
+      <div style="padding:15px"><app-social class="pull-right"></app-social></div>
+      <div class="pull-right" style="direction:rtl;padding-right:20px;padding-top:20px;">
         <p>Agence de recherche privées - Détective privé</p>
         <p>Intervention 7jours/7</p>
-        <p>Contectez-nous : 06 68 65 91 26</p>
+        <p>Contactez-nous : 06 68 65 91 26</p>
       </div>
     </div>
 </div>
@@ -20,8 +20,32 @@
   <app-nav-bar></app-nav-bar>
 </nav>
 <div class="container-fluid">
-  <router-outlet></router-outlet>
-<!--<div class="custom-footer">
-  <h1>Example page header <small>Subtext for header</small></h1>
-</div>-->
+  <div class="row">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="row custom-footer">
+    <div class="col-lg-3">
+      <div style="padding-left:15px">
+        <div class="row" style="margin-top:10px">Callipolis Investigation</div>
+        <div class="row" style="margin-top:10px">
+          <app-social></app-social>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div *ngIf="footerIntroduces" class="float-center" style="margin-top:35px">
+        <div>
+          <ng-container *ngFor="let footerIntroduce of footerIntroduces; index as i">
+            <span *ngIf="i !== 0"> - </span>
+            <a routerLink="/introduces/{{footerIntroduce.id}}">{{footerIntroduce.title}}</a>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div style="margin-top:23px">
+        <p dir="rtl">Devis Gratuit<br/>Intervention 7J/7</p>
+      </div>
+    </div>
+  </div>
 </div>

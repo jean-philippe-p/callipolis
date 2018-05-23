@@ -3,6 +3,12 @@
     height: 200px;
 }
 
+.custom-footer {
+	margin-top: 20px;
+    background-color: #1B1023;
+    height: 100px;
+}
+
 .affix {
     top: 0;
     width: 100%;

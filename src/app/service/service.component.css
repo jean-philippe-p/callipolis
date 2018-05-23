@@ -4,8 +4,6 @@
 }
 
 .sub-service-block {
-  border-radius: 15px;
-  box-shadow: 1px 1px 12px #555;
   vertical-align: middle;
   text-align: center;
   margin: 5px;
@@ -46,11 +44,6 @@
 
 .selected-sub-service {
   padding:20px;
-}
-
-.selected-sub-service-text {
-  padding-top:20px;
-  font-size: 17px;
 }
 
 .affix {

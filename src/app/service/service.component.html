@@ -1,7 +1,7 @@
 <div *ngIf="main_service" class="service">
   <div class="row description" id="service-desciption">
     <h1>{{main_service.title}}</h1>
-    <div [innerHTML]="main_service.summary"></div>
+    <div [innerHTML]="main_service.summary | safeHtml"></div>
   </div>
   <div class="row">
     <div class="col-lg-9">
@@ -25,17 +25,17 @@
           </div>
           <div class="row">
             <div class="col-lg-12">
-                <span [innerHTML]="selected_sub_service.text"></span>
+                <span [innerHTML]="selected_sub_service.text | safeHtml"></span>
             </div>
           </div>
           <div *ngIf="selected_sub_service.articles" class="col-lg-6">
             <div class="article">
-              <span [innerHTML]="selected_sub_service.articles"></span>
+              <span [innerHTML]="selected_sub_service.articles | safeHtml"></span>
             </div>
           </div>
           <div *ngIf="selected_sub_service.important" class="col-lg-6" >
             <div class="important">
-              <span [innerHTML]="selected_sub_service.important"></span>
+              <span [innerHTML]="selected_sub_service.important | safeHtml"></span>
             </div>
           </div>
         </div>
@@ -49,7 +49,7 @@
                   alt="Generic placeholder image" width="140" height="140"
                 >
                 <h2>{{sub_service.title}}</h2>
-                <div [innerHTML]="sub_service.summary"></div>
+                <div [innerHTML]="sub_service.summary | safeHtml"></div>
                 <p><a class="btn btn-default" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">En savoir plus »</a></p>
               </div>
             </ng-template>
@@ -63,7 +63,7 @@
                   alt="Generic placeholder image" width="140" height="140"
                 >
                 <h2>{{sub_service.title}}</h2>
-                <div [innerHTML]="sub_service.summary"></div>
+                <div [innerHTML]="sub_service.summary | safeHtml"></div>
                 <p><a class="btn btn-default" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">En savoir plus »</a></p>
               </div>
             </ng-template>

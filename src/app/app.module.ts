@@ -17,6 +17,7 @@ import { ContactComponent } from './contact/contact.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SocialComponent } from './social/social.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { SafeHtmlPipe } from './safe-html.pipe';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     ContactComponent,
     NavBarComponent,
     SocialComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,

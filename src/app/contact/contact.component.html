@@ -1,4 +1,44 @@
-<iframe id="map" style="width:600px;height:400px;"
-
-  src="https://www.google.com/maps/embed/v1/search?key=AIzaSyClMvOXwj_1bKHUWvxwh-DuSBGVZ75yKZ4&q=Occitanie">
-</iframe>
+<div class="row" style="margin-top:25px">
+  <div class="col-lg-8">
+    <div class="row">
+      <div class="col-lg-12">
+      	<h1>Contact</h1>
+        <p style="color: rgb(58, 85, 85);">Les services propos&eacute;s sur notre site ne sont pas une liste exhaustive des demandes possibles.
+        <br>Si vous n&rsquo;avez pas trouvez la situation vous concernant, n&rsquo;h&eacute;sitez pas &agrave; nous contactez pour que nous trouvions une r&eacute;ponse adapt&eacute;e &agrave; vos besoins.</p>
+        <br>
+        <p class="potter" style="color: #3A5555;">Vous pouvez nous contacter pour toute question, par t&eacute;l&eacute;phone, par mail ou par message via la boite de dialogue mise &agrave; votre disposition.</p>
+        <p style="color: #3A5555;">Nous prenons rapidement connaissance de votre demande et vous contactons rapidement pour &eacute;tablir avec vous une r&eacute;ponse efficace et adapt&eacute;e.</p>
+        <br>
+        <p style="color:#474546;">Si vous le souhaiter, nous pouvons &eacute;galement convenir d&rsquo;un rendez-vous directement dans nos bureaux.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8">
+        <h3>Zone d'opérations</h3>
+        <iframe id="map" style="height:400px;width:100%;" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyClMvOXwj_1bKHUWvxwh-DuSBGVZ75yKZ4&q=Occitanie"></iframe>
+      </div>
+      <div class="col-lg-4">
+        <h3>Coordonnées</h3>
+        <p>
+          Téléphone : <br>
+          06 68 65 91 26
+        </p>
+        <p>
+          Email : <br>
+          aurore.alvy34@hotmail.fr
+        </p>
+        <p>
+          adresse : <br>
+          Lespignan
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div data-spy="affix" data-offset-top="200" id="contact-form">
+      <div id="contact-form">
+        <app-contact-form [mainService]="main_service" [subService]="selected_sub_service"></app-contact-form>
+      </div>
+    </div>
+  </div>
+</div>

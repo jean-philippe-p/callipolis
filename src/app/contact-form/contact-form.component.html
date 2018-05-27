@@ -1,6 +1,7 @@
 <div class="row side-block">
   <div class="col-lg-12">
-    <h1>CONTACT</h1>
+    <h1 *ngIf="mainService">CONTACT</h1>
+    <h3 *ngIf="!mainService" style="text-align: center">Demande d'une étude pesonnalisée</h3>
     <form (ngSubmit)="onSubmit()" #contactForm="ngForm" id="contactForm">
       <div class="form-group">
         <label for="phone">Téléphone</label>
@@ -18,11 +19,11 @@
           email invalide
         </div>
       </div>
-      <div class="form-group">
+      <div *ngIf="mainService" class="form-group">
         <label for="service">Service</label>
         <input *ngIf="subService" type="text" class="form-control" id="service" 
             [(ngModel)]="model.service" name="service" [value]="subService.title" readonly>
-        <select *ngIf="mainService && !subService" class="form-control" id="service"
+        <select *ngIf="!subService" class="form-control" id="service"
             required
             [(ngModel)]="model.service" name="service"
             #service="ngModel">
@@ -31,7 +32,7 @@
       </div>
       <div class="form-group">
         <label>Informations</label>
-        <textarea class="form-control" id="informations"
+        <textarea class="form-control informations" id="informations"
             [(ngModel)]="model.informations" name="informations"></textarea>
       </div>
       <button type="submit" class="btn btn-default" [disabled]="!contactForm.form.valid || !checkForm()">Envoyer</button>

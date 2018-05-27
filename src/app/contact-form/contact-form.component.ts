@@ -29,7 +29,7 @@ export class ContactFormComponent implements OnInit {
   ngOnInit() {
     this.model = new Contact();
 
-    // during ngOnInit imput subService doesn't seems to be inititalized
+    // during ngOnInit input subService doesn't seems to be inititalized
     // due to this behaviour, html input doesn't have any value
     // so we fix this by retreving subService title thanks to route sub id
     // there's probably a better way

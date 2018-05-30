@@ -16,7 +16,7 @@ const httpOptions = {
 @Injectable()
 export class ContactService {
 
-  private serviceUrl: string = 'http://localhost/api';
+  private serviceUrl: string = 'https://www.callipolis-investigation.fr/api';
   public informations: string;
   public success: boolean;
 

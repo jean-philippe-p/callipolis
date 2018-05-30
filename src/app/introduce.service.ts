@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class IntroduceService {
 
-  private serviceUrl: string = 'https://www.callipolis-investigation.fr/api';
+  private serviceUrl: string = 'http://localhost/api';
 
   constructor(private http: HttpClient) { }
   

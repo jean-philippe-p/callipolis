@@ -1,6 +1,7 @@
 export class Contact {
-  service: string;
+  service: number;
   phone: string;
   email: string;
+  town: string;
   informations: string;
 }

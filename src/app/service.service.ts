@@ -12,7 +12,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 @Injectable()
 export class ServiceService {
 
-  private serviceUrl: string = 'https://www.callipolis-investigation.fr/api';
+  private serviceUrl: string = 'http://localhost/api';
 
   constructor(private http: HttpClient) { }
 

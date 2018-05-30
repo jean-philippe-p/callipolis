@@ -18,6 +18,8 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SocialComponent } from './social/social.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SafeHtmlPipe } from './safe-html.pipe';
+import { MessageModalComponent } from './message-modal/message-modal.component';
+import { ResponseModalComponent } from './response-modal/response-modal.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { SafeHtmlPipe } from './safe-html.pipe';
     NavBarComponent,
     SocialComponent,
     ContactFormComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    MessageModalComponent,
+    ResponseModalComponent
   ],
   imports: [
     BrowserModule,

@@ -20,8 +20,10 @@
   <app-nav-bar></app-nav-bar>
 </nav>
 <div class="container-fluid">
-  <div>
-    <router-outlet></router-outlet>
+  <div class="row">
+    <div class="col-lg-12">
+      <router-outlet></router-outlet>
+    </div>
   </div>
   <div class="row custom-footer">
     <div class="col-lg-3">
@@ -49,3 +51,5 @@
     </div>
   </div>
 </div>
+<app-message-modal></app-message-modal>
+<app-response-modal></app-response-modal>

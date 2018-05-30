@@ -39,7 +39,6 @@ export class ServiceComponent implements OnInit, DoCheck {
         this.main_service = main_service;
         this.setSplitIndex();
         this.changeSubService();
-        this.setContactTop();
       });
     } else {
       this.changeSubService();
@@ -89,15 +88,8 @@ export class ServiceComponent implements OnInit, DoCheck {
     return this.serviceService.getLogoUrl(service.logo);
   }
 
-  setContactTop() {
-    // const headerHeight = $('service-desciption').outerHeight(true);
-    // const footerHeight = $('footer').outerHeight() + 60;
-    /*(<any>$('#contact-form')).affix({
-      offset: {
-        top: 200//,
-        //bottom: footerHeight
-      }
-    });*/
+  getContactContainer() {
+    return $('.service-infos');
   }
 
 }

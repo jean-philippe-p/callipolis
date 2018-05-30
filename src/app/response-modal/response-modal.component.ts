@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactService } from '../contact.service';
 
 @Component({
   selector: 'app-response-modal',
@@ -7,9 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResponseModalComponent implements OnInit {
 
-  success;
-
-  constructor() { }
+  constructor(public contactService: ContactService) { }
 
   ngOnInit() {
   }

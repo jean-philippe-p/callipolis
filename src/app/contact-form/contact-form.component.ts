@@ -32,6 +32,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
   listener;
   townInput;
   serviceInput;
+  isvalidatedTownInput: boolean = true;
   towns$: Observable<Town[]>;
   private searchTerms = new Subject<string>();
 
@@ -111,16 +112,19 @@ export class ContactFormComponent implements OnInit, OnDestroy {
   }
 
   search(): void {
+    this.isvalidatedTownInput = this.townInput ? false : true;
     this.searchTerms.next(this.townInput);
   }
 
   setTown(town: Town) {
+    this.isvalidatedTownInput = true;
     this.townInput = `${town.name} (${town.codePostal})`;
     this.model.town = JSON.stringify([town.name, town.codePostal]);
     this.searchTerms.next('');
   }
 
   onSubmit() {
+    this.contactService.success = null;
     if (this.subService) {
       console.log('subservice');
       console.log(this.subService.id);
@@ -136,7 +140,10 @@ export class ContactFormComponent implements OnInit, OnDestroy {
       }
     }
     this.model.informations = this.contactService.informations;
-    this.contactService.setContact(this.model).subscribe(contact => console.log(contact));
+    this.contactService.setContact(this.model).subscribe(
+      contact => this.contactService.success = true,
+      error => this.contactService.success = false
+    );
   }
 
   checkEmail(allowEmpty) {
@@ -150,7 +157,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
   }
 
   checkForm() {
-    return this.checkPhone(true) && this.checkEmail(true) && (this.checkPhone(false) || this.checkEmail(false));
+    return this.checkPhone(true) && this.checkEmail(true) && (this.checkPhone(false) || this.checkEmail(false)) && this.isvalidatedTownInput;
   }
 
   ngOnDestroy() {

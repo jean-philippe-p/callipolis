@@ -18,6 +18,7 @@ export class ContactService {
 
   private serviceUrl: string = 'http://localhost/api';
   public informations: string;
+  public success: boolean;
 
   constructor(private http: HttpClient) { }
 
@@ -31,7 +32,7 @@ export class ContactService {
     }
     return this.http.post<Contact>(this.serviceUrl + '/Contact', clonedContact, httpOptions);
   }
-  
+
   searchTowns(term: string): Observable<Town[]> {
     if (!term.trim()) {
       // if not search term, return empty array.
@@ -42,7 +43,7 @@ export class ContactService {
       catchError(this.handleError<Town[]>('searchTowns', []))
     );
   }
-  
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

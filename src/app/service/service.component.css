@@ -3,6 +3,11 @@
   text-align:justify;
 }
 
+.service-resume {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 20px;
+}
+
 .sub-service-block {
   vertical-align: middle;
   text-align: center;
@@ -53,4 +58,8 @@
 
 img {
     object-fit: contain;
+}
+
+#contact-form {
+  margin-right: -15px;
 }

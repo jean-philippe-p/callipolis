@@ -21,3 +21,22 @@
   position: relative;
   left: 50%;
 }
+
+h1, h2, h3 {
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+h4, h5 {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: bold;
+}
+
+h6 {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: lighter;
+}
+
+.potter {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+}

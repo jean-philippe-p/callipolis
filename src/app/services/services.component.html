@@ -54,7 +54,8 @@
         </a>
       </div>
       <div class="media-body">
-	    <span [innerHTML]="service.summary | safeHtml" style="text-align:justify;"></span>
+        <h3>{{service.title}}</h3>
+        <span [innerHTML]="service.summary | safeHtml" style="text-align:justify;"></span>
 	    <div>
         <div [ngClass]="i % 2 === 0 ? 'pull-right' : 'pull-left'">
           <a class="btn btn-default" routerLink="/services/{{service.id}}">En savoir plus</a>
@@ -72,4 +73,3 @@
     </div>
   </div>
 </div>
-

@@ -7,7 +7,10 @@ import { IntroduceService } from '../introduce.service';
 @Component({
   selector: 'app-introduce',
   templateUrl: './introduce.component.html',
-  styleUrls: ['./introduce.component.css']
+  styleUrls: [
+    './introduce.component.css',
+    '../callipolis.component.css'
+  ]
 })
 export class IntroduceComponent implements OnInit, DoCheck {
 

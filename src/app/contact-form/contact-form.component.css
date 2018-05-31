@@ -1,3 +1,9 @@
+.sticky-contact-form {
+  background-color: #3A5555;
+  color:  #A3EEBA;
+  z-index:1;
+}
+
 .informations {
   height: 39px;
 }

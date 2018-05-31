@@ -1,11 +1,13 @@
 .custom-header {
     background-color: #8BBF9B;
+    color:  #1B1023;
     height: 200px;
 }
 
 .custom-footer {
 	margin-top: 20px;
     background-color: #1B1023;
+    color: #BDBDBD;
     height: 100px;
 }
 
@@ -108,9 +110,3 @@ a.socialIcon:hover, .socialHoverClass {
 	-ms-transition: all 0.8s;
 	transition: all 0.8s;
 }
-
-/*
-    font-family: 'Open Sans', sans-serif;
-    font-family: 'Merriweather Sans', sans-serif;
-    font-family: 'Julius Sans One', sans-serif;
-*/

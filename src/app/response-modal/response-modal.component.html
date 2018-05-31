@@ -2,10 +2,10 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Contact</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
+          <h4 class="modal-title">Contact</h4>
       </div>
       <div class="modal-body">
         <p *ngIf="contactService.success === true">Envoie réussi. Nous vous répondrons dès que possible.</p>
@@ -13,7 +13,7 @@
         <i *ngIf="contactService.success !== false && contactService.success !== true"class="fa fa-circle-o-notch fa-spin" style="font-size:34px;margin-left:47%"></i>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

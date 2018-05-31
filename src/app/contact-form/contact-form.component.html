@@ -28,7 +28,7 @@
         </ul>
       </div>
       <div *ngIf="mainService" class="form-group">
-        <label for="service">Service</label>
+        <label for="service">Votre demande concerne</label>
         <input *ngIf="subService" type="text" class="form-control" id="service"
             [(ngModel)]="serviceInput" name="service" [value]="subService.title" readonly>
         <select *ngIf="!subService" class="form-control" id="service"
@@ -39,7 +39,7 @@
         </select>
       </div>
       <div class="form-group">
-        <label>Message</label>
+        <label>Informations supplémentaires sur votre situation</label>
         <div class="input-group">
           <textarea class="form-control informations" id="informations" name="informations"
             [(ngModel)]="contactService.informations"></textarea>

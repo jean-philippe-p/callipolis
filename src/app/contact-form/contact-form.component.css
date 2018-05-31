@@ -5,11 +5,12 @@
 }
 
 .informations {
-  height: 39px;
+  height: 38px;
 }
 .btn-infos {
-	color: white;
-	margin-top: -2px;
+	/*color: white;*/
+  background-color: white;
+	margin-top: -3px;
 }
 
 

@@ -5,10 +5,9 @@
 }
 
 .custom-footer {
-	margin-top: 20px;
-    background-color: #1B1023;
-    color: #BDBDBD;
-    height: 100px;
+  background-color: #1B1023;
+  color: #BDBDBD;
+  height: 100px;
 }
 
 .affix {

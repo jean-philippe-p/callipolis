@@ -1,88 +1,127 @@
-<div *ngIf="main_service" class="service">
-  <div class="row description">
-    <h1>{{main_service.title}}</h1>
-    <div [innerHTML]="main_service.summary | safeHtml"  class="service-resume"></div>
-  </div>
-  <div class="row service-infos">
-    <div class="col-lg-9">
-      <div class="row">
-        <div *ngIf="selected_sub_service" class="selected-sub-service">
-          <div class="row">
-            <div class="float-center">
-              <div>
-                <div style="float:left">
-                  <img class="img-circle"
-                        [ngStyle]="{'backgroundColor': selected_sub_service.color}"
-                        src="{{getLogoUrl(selected_sub_service)}}"
-                        alt="Generic placeholder image" width="80" height="80"
-                  >
-                  </div>
-                  <div style="float:left;padding-left:20px;padding-top:13px">
-                    <h4 style="color:#1B1023;">{{selected_sub_service.title}}</h4>
-                  </div>
+<div *ngIf="main_service">
+  <div class="service">
+    <div class="row description">
+      <h1>{{main_service.title}}</h1>
+      <div [innerHTML]="main_service.summary | safeHtml"  class="service-resume"></div>
+    </div>
+    <div class="row service-infos">
+      <div class="col-lg-9">
+        <div class="row">
+          <div *ngIf="selected_sub_service" class="selected-sub-service">
+            <div class="row">
+              <div class="float-center">
+                <div>
+                  <div style="float:left">
+                    <img class="img-circle"
+                          [ngStyle]="{'backgroundColor': selected_sub_service.color}"
+                          src="{{getLogoUrl(selected_sub_service)}}"
+                          alt="Generic placeholder image" width="80" height="80"
+                    >
+                    </div>
+                    <div style="float:left;padding-left:20px;padding-top:13px">
+                      <h4 style="color:#1B1023;">{{selected_sub_service.title}}</h4>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                  <span [innerHTML]="selected_sub_service.text | safeHtml"></span>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="col-lg-12">
-                <span [innerHTML]="selected_sub_service.text | safeHtml"></span>
+          <div *ngIf="!selected_sub_service">
+            <div class="col-lg-6">
+              <ng-template ngFor let-sub_service [ngForOf]="main_service.subServices" let-i="index">
+                <div *ngIf="i<=split_index" class="col-lg-12  sub-service-block block">
+                  <img class="img-circle"
+                    [ngStyle]="{'backgroundColor': sub_service.color}"
+                    src="{{getLogoUrl(sub_service)}}"
+                    alt="Generic placeholder image" width="140" height="140"
+                  >
+                  <h2>{{sub_service.title}}</h2>
+                  <div [innerHTML]="sub_service.summary | safeHtml"></div>
+                  <p><a class="btn btn-default" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">En savoir plus »</a></p>
+                </div>
+              </ng-template>
             </div>
-          </div>
-          <div *ngIf="selected_sub_service.articles" class="col-lg-6">
-            <div class="article">
-              <span [innerHTML]="selected_sub_service.articles | safeHtml"></span>
-            </div>
-          </div>
-          <div *ngIf="selected_sub_service.important" class="col-lg-6" >
-            <div class="important">
-              <span [innerHTML]="selected_sub_service.important | safeHtml"></span>
+            <div class="col-lg-6" style="padding-left:10px;padding-right:20px">
+              <ng-template ngFor let-sub_service [ngForOf]="main_service.subServices" let-i="index">
+                <div *ngIf="i>split_index" class="col-lg-12  sub-service-block block">
+                  <img class="img-circle"
+                    [ngStyle]="{'backgroundColor': sub_service.color}"
+                    src="{{getLogoUrl(sub_service)}}"
+                    alt="Generic placeholder image" width="140" height="140"
+                  >
+                  <h2>{{sub_service.title}}</h2>
+                  <div [innerHTML]="sub_service.summary | safeHtml"></div>
+                  <p><a class="btn btn-default" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">En savoir plus »</a></p>
+                </div>
+              </ng-template>
             </div>
           </div>
         </div>
-        <div *ngIf="!selected_sub_service">
-          <div class="col-lg-6">
-            <ng-template ngFor let-sub_service [ngForOf]="main_service.subServices" let-i="index">
-              <div *ngIf="i<=split_index" class="col-lg-12  sub-service-block block">
-                <img class="img-circle"
-                  [ngStyle]="{'backgroundColor': sub_service.color}"
-                  src="{{getLogoUrl(sub_service)}}"
-                  alt="Generic placeholder image" width="140" height="140"
-                >
-                <h2>{{sub_service.title}}</h2>
-                <div [innerHTML]="sub_service.summary | safeHtml"></div>
-                <p><a class="btn btn-default" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">En savoir plus »</a></p>
-              </div>
-            </ng-template>
-          </div>
-          <div class="col-lg-6" style="padding-left:10px;padding-right:20px">
-            <ng-template ngFor let-sub_service [ngForOf]="main_service.subServices" let-i="index">
-              <div *ngIf="i>split_index" class="col-lg-12  sub-service-block block">
-                <img class="img-circle"
-                  [ngStyle]="{'backgroundColor': sub_service.color}"
-                  src="{{getLogoUrl(sub_service)}}"
-                  alt="Generic placeholder image" width="140" height="140"
-                >
-                <h2>{{sub_service.title}}</h2>
-                <div [innerHTML]="sub_service.summary | safeHtml"></div>
-                <p><a class="btn btn-default" routerLink="/services/{{main_service.id}}/sub-services/{{sub_service.id}}" role="button">En savoir plus »</a></p>
-              </div>
-            </ng-template>
+      </div>
+      <div class="col-lg-3">
+        <div id="contact-form">
+          <div *ngIf="main_service" class="row">
+            <app-contact-form [mainService]="main_service" [subService]="selected_sub_service" [container]="getContactContainer()"></app-contact-form>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-3">
-      <div id="contact-form">
-        <div *ngIf="main_service" class="row">
-          <app-contact-form [mainService]="main_service" [subService]="selected_sub_service" [container]="getContactContainer()"></app-contact-form>
-        </div>
-        <div *ngIf="selected_sub_service" class="row" style="margin-top: 20px">
-          <div class="row side-block">
-            <div class="col-lg-12">
-              <h1>TARIF</h1>
-              <p *ngIf="selected_sub_service.rate">{{selected_sub_service.rate}}€/heure</p>
-              <p *ngIf="!selected_sub_service.rate">A déterminer après devis</p>
+  </div>
+  <div *ngIf="selected_sub_service" class="service-footer">
+    <div class="row article-important" style="background-color:#306FA1">
+      <div class="col-lg-6">
+        <div *ngIf="selected_sub_service.important" class="row">
+          <div class="col-lg-offset-1 col-lg-10">
+            <div class="raw">
+              <div class="col-lg-12">
+                <div style="float: left">
+                  <img src="assets/important.png" style="height:50px">
+                </div>
+                <div style="float: left">
+                  <h4 class="article-important-title">Imporant</h4>
+                </div>
+              </div>
             </div>
+            <div class="raw">
+              <div class="col-lg-12">
+                <div [innerHTML]="selected_sub_service.important | safeHtml"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div *ngIf="selected_sub_service.articles" class="row">
+          <div class="col-lg-offset-1 col-lg-10">
+            <div class="raw">
+              <div class="col-lg-12">
+                <div style="float: left">
+                  <img src="assets/law.png" style="height:50px">
+                </div>
+                <div style="float: left">
+                  <h4 class="article-important-title">Articles</h4>
+                </div>
+              </div>
+            </div>
+            <div class="raw">
+              <div class="col-lg-12">
+                <div [innerHTML]="selected_sub_service.articles | safeHtml"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="background-color:#205378">
+      <div class="col-lg-12">
+        <div class="float-center">
+          <div class="tarif">
+            <span *ngIf="selected_sub_service.rate">TARIF : {{selected_sub_service.rate}}€/heure</span>
+            <span *ngIf="!selected_sub_service.rate">TARIF : A déterminer après devis</span>
           </div>
         </div>
       </div>

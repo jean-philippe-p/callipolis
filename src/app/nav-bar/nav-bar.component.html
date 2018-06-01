@@ -1,5 +1,20 @@
 
     <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <input data-toggle="dropdown" type="text" class="form-control search-input" placeholder="Recherche..." #searchBox (keyup)="search(searchBox.value)" >
+          <ul class="dropdown-menu">
+            <li *ngIf="!search_matches.length" class="disabled">
+                <a>Aucun résultats</a>
+            </li>
+            <li *ngFor="let search_match of search_matches">
+                <a routerLink="{{search_match.route}}">
+                  {{search_match.title}}
+                </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a routerLink="/services" class="hvr-underline-from-center">Accueil</a></li>
         <li class="dropdown">
@@ -30,19 +45,5 @@
           </ul>
         </li>
         <li><a routerLink="/contact" class="hvr-underline-from-center">Contact</a></li>
-
-        <li class="dropdown">
-          <input data-toggle="dropdown" type="text" class="search-input" placeholder="Recherche..." #searchBox (keyup)="search(searchBox.value)" >
-          <ul class="dropdown-menu">
-            <li *ngIf="!search_matches.length" class="disabled">
-                <a>Aucun résultats</a>
-            </li>
-            <li *ngFor="let search_match of search_matches">
-                <a routerLink="{{search_match.route}}">
-                  {{search_match.title}}
-                </a>
-            </li>
-          </ul>
-        </li>
       </ul>
     </div>

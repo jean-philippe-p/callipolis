@@ -31,6 +31,23 @@
 .article-important-title {
   margin-left: 25px;
 }
+.article-important-body {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  max-height:250px;
+  overflow: hidden;
+  border-style: solid;
+  border-color: white;
+  border-top-width: 1px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 1px;
+}
+
+.article-important-body:hover {
+  padding-right: 5px;
+  overflow-y: scroll;
+}
 
 .article {
   max-height:300px;

@@ -44,6 +44,21 @@
   border-bottom-width: 1px;
 }
 
+.article-important-body::-webkit-scrollbar {
+  width: 10px;
+}
+
+.article-important-body::-webkit-scrollbar-track {
+  background: #F1F1F1;
+}
+
+.article-important-body::-webkit-scrollbar-thumb {
+  background: #C1C1C1;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+}
+
 .article-important-body:hover {
   padding-right: 5px;
   overflow-y: scroll;

@@ -2,30 +2,16 @@
   <div id="carousel-example-generic" class="carousel slide carousel-services" data-ride="carousel">
 
     <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-    </ol>
+    <!-- <ol class="carousel-indicators">
+      <li *ngFor="let carouselIntroduce of carouselIntroduces; index as i" data-target="#carousel-example-generic" data-slide-to="{{i}}"></li>
+    </ol> -->
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-      <div class="item active slide-services">
+      <div *ngFor="let carouselIntroduce of carouselIntroduces; index as i" class="{{i === 0 ? 'item active slide-services' : 'item slide-services'}}">
         <div class="carousel-caption">
-          <h3>first</h3>
-          <p>first bla bla</p>
-        </div>
-      </div>
-      <div class="item slide-services">
-        <div class="carousel-caption">
-          <h3>second</h3>
-          <p>second bla bla</p>
-        </div>
-      </div>
-      <div class="item slide-services">
-        <div class="carousel-caption">
-          <h3>third</h3>
-          <p>third bla bla</p>
+          <h3>{{carouselIntroduce.title}}</h3>
+          <div [innerHTML]="carouselIntroduce.text | safeHtml"></div>
         </div>
       </div>
     </div>

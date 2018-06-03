@@ -21,7 +21,7 @@ export class ServiceService {
   }
 
   getServices(): Observable<MainService[]> {
-    return this.http.get<MainService[]>(this.serviceUrl + '/MainServices');
+    return this.http.get<MainService[]>(this.serviceUrl + '/MainServices?available=1');
   }
 
   getService(id: number): Observable<MainService> {
@@ -32,7 +32,7 @@ export class ServiceService {
         service = service_res;
         return service;
       }
-    ).mergeMap(() =>  this.http.get<Service[]>(this.serviceUrl + '/SubServices/' + id))
+    ).mergeMap(() =>  this.http.get<Service[]>(this.serviceUrl + '/SubServices?available=1&mainService=' + id))
     .map(sub_services => {
         service.subServices = sub_services;
         return service;

@@ -9,13 +9,13 @@ export class IntroduceService {
   private serviceUrl: string = 'https://www.callipolis-investigation.fr/api';
 
   constructor(private http: HttpClient) { }
-  
+
   getIntroduce(id: number): Observable<Introduce> {
     return this.http.get<Introduce>(this.serviceUrl + '/Introduce/' + id);
   }
-  
+
   getFooterIntroduces(): Observable<Introduce[]> {
-    return this.http.get<Introduce[]>(this.serviceUrl + '/FooterIntroduces');
+    return this.http.get<Introduce[]>(this.serviceUrl + '/Introduces?display=footer');
   }
 
 }

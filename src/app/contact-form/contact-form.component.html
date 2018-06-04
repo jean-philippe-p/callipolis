@@ -21,10 +21,10 @@
       </div>
       <div class="form-group">
         <label for="town">Ville</label>
-        <input type="text" class="form-control" id="town" name="town"
+        <input type="text" class="form-control search-input search-input-contact" id="town" name="town"
             (keyup)="search()" [(ngModel)]="townInput" autocomplete="off">
-        <ul class="search-result">
-          <li *ngFor="let town of towns$ | async" (click)="setTown(town)">{{town.name}} ({{town.codePostal}})</li>
+        <ul class="search-result search-result-contact">
+          <li *ngFor="let town of towns$ | async" (click)="setTown(town)"><a>{{town.name}} ({{town.codePostal}})</a></li>
         </ul>
       </div>
       <div *ngIf="mainService" class="form-group">

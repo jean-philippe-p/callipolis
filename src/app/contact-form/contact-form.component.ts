@@ -109,6 +109,13 @@ export class ContactFormComponent implements OnInit, OnDestroy {
         this.previousScrollTop = $(window).scrollTop();
       }
     });
+
+    $( ".search-input-contact" ).focusin(function() {
+      $( ".search-result-contact" ).css( "display", "block" );
+    });
+    $( ".search-input-contact" ).focusout(function() {
+      setTimeout(function() {$( ".search-result-contact" ).css( "display", "none" )}, 300);
+    });
   }
 
   search(): void {

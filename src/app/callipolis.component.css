@@ -40,3 +40,43 @@ h6 {
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
 }
+
+
+/* Search styles */
+.search-result li {
+  color: #333;
+  height: 30px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: white;
+  list-style-type: none;
+}
+
+.search-result li:hover {
+  background-color: rgb(238, 238, 238);
+}
+
+.search-result li a {
+  color: #333;
+  display: block;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+ul.search-result {
+  display: none;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 6px 12px 0px;
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 0px 0px 4px 4px;
+  position: absolute;
+  margin-top: 0;
+  padding-left: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 3;
+}

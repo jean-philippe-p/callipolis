@@ -7,7 +7,10 @@ import * as $ from 'jquery';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
+  styleUrls: [
+    './nav-bar.component.css',
+    '../callipolis.component.css'
+  ]
 })
 export class NavBarComponent implements OnInit {
 
@@ -33,6 +36,12 @@ export class NavBarComponent implements OnInit {
             $(this).animate({'margin-left': '0px'}, 100);
           });
       });
+    });
+    $( ".search-input-navbar" ).focusin(function() {
+      $( ".search-result-navbar" ).css( "display", "block" );
+    });
+    $( ".search-input-navbar" ).focusout(function() {
+      setTimeout(function() {$( ".search-result-navbar" ).css( "display", "none" )}, 300);
     });
   }
 

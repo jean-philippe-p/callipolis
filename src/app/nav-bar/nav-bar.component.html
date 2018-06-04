@@ -2,15 +2,12 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-left">
         <li class="dropdown">
-          <input data-toggle="dropdown" type="text" class="form-control search-input" placeholder="Recherche..." #searchBox (keyup)="search(searchBox.value)" >
-          <ul class="dropdown-menu">
-            <li *ngIf="!search_matches.length" class="disabled">
-                <a>Aucun résultats</a>
-            </li>
+          <input data-toggle="dropdown" type="text" class="form-control search-input search-input-navbar" placeholder="Recherche..." #searchBox (keyup)="search(searchBox.value)" >
+          <ul class="search-result search-result-navbar">
             <li *ngFor="let search_match of search_matches">
-                <a routerLink="{{search_match.route}}">
-                  {{search_match.title}}
-                </a>
+              <a routerLink="{{search_match.route}}">
+                {{search_match.title}}
+              </a>
             </li>
           </ul>
         </li>

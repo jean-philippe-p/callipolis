@@ -20,6 +20,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { SafeHtmlPipe } from './safe-html.pipe';
 import { MessageModalComponent } from './message-modal/message-modal.component';
 import { ResponseModalComponent } from './response-modal/response-modal.component';
+import { ImportantComponent } from './important/important.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ResponseModalComponent } from './response-modal/response-modal.componen
     ContactFormComponent,
     SafeHtmlPipe,
     MessageModalComponent,
-    ResponseModalComponent
+    ResponseModalComponent,
+    ImportantComponent
   ],
   imports: [
     BrowserModule,

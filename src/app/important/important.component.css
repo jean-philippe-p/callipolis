@@ -1,0 +1,42 @@
+.article-important {
+  padding: 25px;
+  background-color:#306FA1;
+  color: white;
+  text-align:justify;
+}
+
+.article-important-title {
+  margin-left: 25px;
+}
+.article-important-body {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  max-height:250px;
+  overflow: hidden;
+  border-style: solid;
+  border-color: white;
+  border-top-width: 1px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 1px;
+}
+
+.article-important-body::-webkit-scrollbar {
+  width: 10px;
+}
+
+.article-important-body::-webkit-scrollbar-track {
+  background: #F1F1F1;
+}
+
+.article-important-body::-webkit-scrollbar-thumb {
+  background: #C1C1C1;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+}
+
+.article-important-body:hover {
+  padding-right: 5px;
+  overflow-y: scroll;
+}

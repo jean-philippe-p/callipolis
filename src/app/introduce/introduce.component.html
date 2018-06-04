@@ -6,14 +6,5 @@
       <div [innerHTML]="introduce.text | safeHtml"></div>
     </div>
   </div>
-  <div *ngIf="introduce.articles" class="col-lg-6">
-    <div class="article">
-      <span [innerHTML]="introduce.articles | safeHtml"></span>
-    </div>
-  </div>
-  <div *ngIf="introduce.important" class="col-lg-6" >
-    <div class="important">
-      <span [innerHTML]="introduce.important | safeHtml"></span>
-    </div>
-  </div>
+  <app-important [articles]="introduce.articles" [important]="introduce.important"></app-important>
 </div>

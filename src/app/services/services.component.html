@@ -29,7 +29,7 @@
 </div>
 
 <div *ngFor="let service of services; index as i" class="row">
-  <div class="service-block block col-md-offset-2 col-md-8">
+  <div class="service-block block col-lg-8 {{i % 2 === 0 ? 'col-lg-offset-1' : 'col-lg-offset-3'}}">
     <div class="media">
       <div *ngIf="i % 2 === 0" class="media-left media-middle">
         <a href="#">
@@ -40,14 +40,12 @@
         </a>
       </div>
       <div class="media-body">
-        <h3>{{service.title}}</h3>
+        <h3 style="text-align:center">{{service.title}}</h3>
         <span [innerHTML]="service.summary | safeHtml" style="text-align:justify;"></span>
-	    <div>
         <div [ngClass]="i % 2 === 0 ? 'pull-right' : 'pull-left'">
-          <a class="btn btn-default" routerLink="/services/{{service.id}}">En savoir plus</a>
+          <a class="btn btn-primary" routerLink="/services/{{service.id}}">En savoir plus</a>
         </div>
-      </div>
-	  </div>
+  	  </div>
       <div *ngIf="i % 2 === 1" class="media-right media-middle">
         <a href="#">
           <img class="media-object img-circle logo"

@@ -44,6 +44,10 @@ export class ContactService {
     );
   }
 
+  getCompany(): Observable<any> {
+    return this.http.get<any>(this.serviceUrl + '/Company/1');
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.

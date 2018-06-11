@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { ContactService } from '../contact.service';
+import { Company } from '../company';
 
 @Component({
   selector: 'app-contact',
@@ -11,27 +13,12 @@ import * as $ from 'jquery';
 })
 export class ContactComponent implements OnInit {
 
-  public mainTowns: string[] = [];
+  public company: Company = new Company();
 
-  constructor() { }
+  constructor(private contactService: ContactService) { }
 
   ngOnInit() {
-    this.mainTowns = [
-      'Avignon',
-      'Nîmes',
-      'Montpellier',
-      'Sète',
-      'Agde',
-      'Béziers',
-      'Narbonne',
-      'Perpignan',
-      'Carcassone',
-      'Toulouse',
-      'Millau',
-      'Rodez',
-      'Cahors',
-      'Mende'
-    ];
+    this.contactService.getCompany().subscribe(company => this.company = company);
   }
 
 }

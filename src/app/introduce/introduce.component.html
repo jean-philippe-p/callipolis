@@ -1,8 +1,8 @@
 <div *ngIf="introduce">
   <div class="row">
     <div class="col-lg-12">
-      <h1 *ngIf="introduce.display == 'navbar'">{{introduce.title}}</h1>
-      <h2 *ngIf="introduce.display == 'footer'">{{introduce.title}}</h2>
+      <h1 *ngIf="introduce.display == 'navbar'" style="text-align: center">{{introduce.title}}</h1>
+      <h2 *ngIf="introduce.display == 'footer'" style="text-align: center">{{introduce.title}}</h2>
       <div [innerHTML]="introduce.text | safeHtml"></div>
     </div>
   </div>

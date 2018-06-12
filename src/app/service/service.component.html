@@ -78,12 +78,16 @@
   </div>
   <div *ngIf="selected_sub_service">
     <app-important [articles]="selected_sub_service.articles" [important]="selected_sub_service.important"></app-important>
-    <div class="row" style="background-color:#205378">
+    <div class="row" style="background-color:#01a9a9">
       <div class="col-lg-12">
         <div class="float-center">
-          <div class="tarif">
-            <span *ngIf="selected_sub_service.rate">TARIF : {{selected_sub_service.rate}}€/heure</span>
-            <span *ngIf="!selected_sub_service.rate">TARIF : A déterminer après devis</span>
+          <div>
+            <a style="text-decoration: none;color: white;" routerLink="/introduces/3">
+              <div class="tarif">
+                  <span *ngIf="selected_sub_service.rate">TARIF : {{selected_sub_service.rate}}€/heure</span>
+                  <span *ngIf="!selected_sub_service.rate">TARIF : A déterminer après devis</span>
+              </div>
+            </a>
           </div>
         </div>
       </div>

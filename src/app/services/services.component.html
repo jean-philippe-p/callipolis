@@ -1,58 +1,62 @@
 <div class="row">
-  <div id="carousel-example-generic" class="carousel slide carousel-services" data-ride="carousel">
+  <div class="col-lg-12">
+    <div class="row">
+      <div id="carousel-example-generic" class="carousel slide carousel-services" data-ride="carousel">
 
-    <!-- Indicators -->
-    <!-- <ol class="carousel-indicators">
-      <li *ngFor="let carouselIntroduce of carouselIntroduces; index as i" data-target="#carousel-example-generic" data-slide-to="{{i}}"></li>
-    </ol> -->
+        <!-- Indicators -->
+        <!-- <ol class="carousel-indicators">
+          <li *ngFor="let carouselIntroduce of carouselIntroduces; index as i" data-target="#carousel-example-generic" data-slide-to="{{i}}"></li>
+        </ol> -->
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      <div *ngFor="let carouselIntroduce of carouselIntroduces; index as i" class="{{i === 0 ? 'item active slide-services' : 'item slide-services'}}">
-        <div class="carousel-caption">
-          <h3>{{carouselIntroduce.title}}</h3>
-          <div [innerHTML]="carouselIntroduce.text | safeHtml"></div>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div *ngFor="let carouselIntroduce of carouselIntroduces; index as i" class="{{i === 0 ? 'item active slide-services' : 'item slide-services'}}">
+            <div class="carousel-caption">
+              <h3>{{carouselIntroduce.title}}</h3>
+              <div [innerHTML]="carouselIntroduce.text | safeHtml"></div>
+            </div>
+          </div>
         </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
     </div>
 
-    <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div>
-
-<div *ngFor="let service of services; index as i" class="row">
-  <div class="service-block block col-lg-8 {{i % 2 === 0 ? 'col-lg-offset-1' : 'col-lg-offset-3'}}">
-    <div class="media">
-      <div *ngIf="i % 2 === 0" class="media-left media-middle">
-        <a href="#">
-          <img class="media-object img-circle logo"
-              [ngStyle]="{'backgroundColor': service.color}"
-              src="{{getLogoUrl(service)}}"
-          >
-        </a>
-      </div>
-      <div class="media-body">
-        <h3 style="text-align:center">{{service.title}}</h3>
-        <span [innerHTML]="service.summary | safeHtml" style="text-align:justify;"></span>
-        <div [ngClass]="i % 2 === 0 ? 'pull-right' : 'pull-left'">
-          <a class="btn btn-primary" routerLink="/services/{{service.id}}">En savoir plus</a>
+    <div *ngFor="let service of services; index as i" class="row">
+      <div class="service-block block col-lg-8 {{i % 2 === 0 ? 'col-lg-offset-1' : 'col-lg-offset-3'}}">
+        <div class="media">
+          <div *ngIf="i % 2 === 0" class="media-left media-middle">
+            <a href="#">
+              <img class="media-object img-circle logo"
+                  [ngStyle]="{'backgroundColor': service.color}"
+                  src="{{getLogoUrl(service)}}"
+              >
+            </a>
+          </div>
+          <div class="media-body">
+            <h3 style="text-align:center">{{service.title}}</h3>
+            <span [innerHTML]="service.summary | safeHtml" style="text-align:justify;"></span>
+            <div [ngClass]="i % 2 === 0 ? 'pull-right' : 'pull-left'">
+              <a class="btn btn-primary" routerLink="/services/{{service.id}}">En savoir plus</a>
+            </div>
+      	  </div>
+          <div *ngIf="i % 2 === 1" class="media-right media-middle">
+            <a href="#">
+              <img class="media-object img-circle logo"
+                  [ngStyle]="{'backgroundColor': service.color}"
+                  src="{{getLogoUrl(service)}}"
+              >
+            </a>
+          </div>
         </div>
-  	  </div>
-      <div *ngIf="i % 2 === 1" class="media-right media-middle">
-        <a href="#">
-          <img class="media-object img-circle logo"
-              [ngStyle]="{'backgroundColor': service.color}"
-              src="{{getLogoUrl(service)}}"
-          >
-        </a>
       </div>
     </div>
   </div>

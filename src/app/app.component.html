@@ -6,17 +6,19 @@
 
 
 <div class="custom-header">
-    <img src="assets/logo.png" style="height:200px">
+    <a routerLink="/services">
+      <img src="assets/logo.png" style="height:200px">
+    </a>
     <div class="pull-right">
       <div style="padding:15px"><app-social class="pull-right"></app-social></div>
       <div class="pull-right" style="text-align: right;padding-right:20px;padding-top:20px;">
-        <p>Agence de recherche privées - Détective privé</p>
+        <p>Agence de recherches privées - Détective privé</p>
         <div style="color: #ffffff;white-space: nowrap;">
-          <p>Intervention 7jours/7</p>
+          <p>Intervention 7 jours / 7</p>
           <p>
-            <img class="media-object img-circle logo" src="assets/phone.png" width="25" height="25" style="float:left">
+            <img src="assets/phone-header.png" width="25" height="25" style="float:left;object-fit: contain;">
             <span style="margin-left:5px;float:left">{{company.phone}}</span>
-            <img class="media-object img-circle logo" src="assets/mail.png" width="25" height="25" style="margin-left:15px;float:left">
+            <img src="assets/email-header.png" width="25" height="25" style="margin-left:15px;float:left;object-fit: contain;">
             <span style="margin-left:5px;float:left">{{company.email}}</span>
           </p>
         </div>
@@ -60,8 +62,8 @@
       </div>
     </div>
     <div class="col-lg-3">
-      <div style="margin-top:23px">
-        <p dir="rtl">Devis Gratuit<br/>Intervention 7J/7</p>
+      <div style="margin-top:13px">
+        <p dir="rtl">Devis Gratuit<br/>Intervention 7 jours / 7<br/>en Occitanie et dans toute la France</p>
       </div>
     </div>
   </div>

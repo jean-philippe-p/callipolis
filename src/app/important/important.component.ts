@@ -3,7 +3,10 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-important',
   templateUrl: './important.component.html',
-  styleUrls: ['./important.component.css']
+  styleUrls: [
+    './important.component.css',
+    '../callipolis.component.css'
+  ]
 })
 export class ImportantComponent implements OnInit {
 

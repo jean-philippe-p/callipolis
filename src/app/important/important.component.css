@@ -1,12 +1,14 @@
 .article-important {
   padding: 25px;
   background-color:#d8d8d8;
-  color: white;
+  color: #2f2d2e;
   text-align:justify;
 }
 
 .article-important-title {
   margin-left: 25px;
+  margin-top: 12px;
+  color: #2f2d2e;
 }
 .article-important-body {
   padding-top: 5px;
@@ -14,7 +16,7 @@
   max-height:250px;
   overflow: hidden;
   border-style: solid;
-  border-color: white;
+  border-color: #2f2d2e;
   border-top-width: 1px;
   border-left-width: 0px;
   border-right-width: 0px;

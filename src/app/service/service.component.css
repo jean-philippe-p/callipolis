@@ -9,6 +9,7 @@
 }
 
 .sub-service-resume {
+  margin-top: 25px;
   text-align: center;
   color:#666666;
 }
@@ -29,12 +30,15 @@
 }
 
 .tarif {
-  color: white;
+  color: #d8d8d8;
   margin: 15px;
   padding: 15px;
-  border-style: solid;
-  border-color: white;
+  background-color: #2f2d2e;
   border-radius: 35px;
+}
+
+.tarif:hover {
+  background-color: #403C3F;
 }
 
 .affix {

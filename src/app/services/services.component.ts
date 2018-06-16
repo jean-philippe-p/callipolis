@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ServiceService } from '../service.service';
-import { IntroduceService } from '../introduce.service';
+import { GenericService } from '../generic.service';
 import { MainService } from '../service';
-import { Introduce } from '../introduce';
+import { CarouselPart } from '../carousel-part';
 
 @Component({
   selector: 'app-services',
@@ -15,18 +15,22 @@ import { Introduce } from '../introduce';
 })
 export class ServicesComponent implements OnInit {
 
-  services: object[];
-  carouselIntroduces: Introduce[];
+  services: MainService[] = [];
+  carousel: CarouselPart[] = [];
 
-  constructor(private serviceService: ServiceService, private introduceService: IntroduceService) { }
+  constructor(private serviceService: ServiceService, private genericService: GenericService) { }
 
   ngOnInit() {
     this.serviceService.getServices().subscribe(services => this.services = services);
-    this.introduceService.getCarouselIntroduces().subscribe(carouselIntroduces => this.carouselIntroduces = carouselIntroduces);
+    this.genericService.getResources('Carousel').subscribe(carousel => this.carousel = carousel);
   }
 
   getLogoUrl(service: MainService): string {
     return this.serviceService.getLogoUrl(service.logo);
+  }
+
+  getImageUrl(id: string): string {
+    return this.serviceService.getLogoUrl(id);
   }
 
 }

@@ -10,6 +10,7 @@ import { ServicesComponent } from './services/services.component';
 import { ServiceService } from './service.service';
 import { ContactService } from './contact.service';
 import { IntroduceService } from './introduce.service';
+import { GenericService } from './generic.service';
 import { ServiceComponent } from './service/service.component';
 import { SubServiceComponent } from './sub-service/sub-service.component';
 import { IntroduceComponent } from './introduce/introduce.component';
@@ -45,7 +46,7 @@ import { ImportantComponent } from './important/important.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [ServiceService, ContactService, IntroduceService],
+  providers: [ServiceService, ContactService, IntroduceService, GenericService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

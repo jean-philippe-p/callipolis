@@ -18,8 +18,4 @@ export class IntroduceService {
     return this.http.get<Introduce[]>(this.serviceUrl + '/Introduces?display=footer');
   }
 
-  getCarouselIntroduces(): Observable<Introduce[]> {
-    return this.http.get<Introduce[]>(this.serviceUrl + '/Introduces?display=carousel');
-  }
-
 }

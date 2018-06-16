@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-12">
     <div class="row">
-      <div id="carousel-example-generic" class="carousel slide carousel-services" data-ride="carousel">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 
         <!-- Indicators -->
         <!-- <ol class="carousel-indicators">
@@ -10,10 +10,11 @@
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-          <div *ngFor="let carouselIntroduce of carouselIntroduces; index as i" class="{{i === 0 ? 'item active slide-services' : 'item slide-services'}}">
+          <div *ngFor="let carouselPart of carousel; index as i" class="{{i === 0 ? 'item active' : 'item'}}">
+            <img src="{{getImageUrl(carouselPart.image)}}" alt="...">
             <div class="carousel-caption">
-              <h3>{{carouselIntroduce.title}}</h3>
-              <div [innerHTML]="carouselIntroduce.text | safeHtml"></div>
+              <h3>{{carouselPart.title}}</h3>
+              <div [innerHTML]="carouselPart.text | safeHtml"></div>
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@
     <h3 *ngIf="!mainService" style="text-align: center">Demande d'une étude pesonnalisée</h3>
     <form (ngSubmit)="onSubmit()" #contactForm="ngForm" id="contactForm">
       <div class="form-group">
-        <label for="phone">Téléphone</label>
+        <label for="phone">Téléphone :</label>
         <input type="text" class="form-control" id="phone"
             [(ngModel)]="model.phone" name="phone">
         <div [hidden]="checkPhone(true)" class="alert alert-danger">
@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="email">Email</label>
+        <label for="email">Email :</label>
         <input type="email" class="form-control" id="email"
             [(ngModel)]="model.email" name="email" #email="ngModel">
         <div [hidden]="checkEmail(true)" class="alert alert-danger">
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="town">Ville</label>
+        <label for="town">Ville :</label>
         <input type="text" class="form-control search-input search-input-contact" id="town" name="town"
             (keyup)="search()" [(ngModel)]="townInput" autocomplete="off">
         <ul class="search-result search-result-contact">
@@ -28,7 +28,7 @@
         </ul>
       </div>
       <div *ngIf="mainService" class="form-group">
-        <label for="service">Votre demande concerne</label>
+        <label for="service">Votre demande concerne :</label>
         <input *ngIf="subService" type="text" class="form-control" id="service"
             [(ngModel)]="serviceInput" name="service" [value]="subService.title" readonly>
         <select *ngIf="!subService" class="form-control" id="service"
@@ -39,7 +39,7 @@
         </select>
       </div>
       <div class="form-group">
-        <label>Informations supplémentaires sur votre situation</label>
+        <label>Informations supplémentaires :</label>
         <div class="input-group">
           <textarea class="form-control informations" id="informations" name="informations"
             [(ngModel)]="contactService.informations"></textarea>

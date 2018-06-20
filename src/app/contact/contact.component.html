@@ -1,19 +1,19 @@
 <div style="padding: 25px;">
   <div class="row" style="margin-top:25px;margin-bottom:25px">
-    <div class="col-lg-12" style="text-align: center">
+    <div class="col-sm-12" style="text-align: center">
     	<h1 style="text-align: center">Contact</h1>
       <div [innerHTML]="company.help | safeHtml"></div>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-md-6">
       <div class="row">
-        <div class="col-lg-offset-2">
+        <div class="col-xs-offset-2">
           <h6 style="color: #30B8B8">Coordonnées :</h6>
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-offset-3" style="color: #F3AB01">
+        <div class="col-xs-offset-3" style="color: #F3AB01">
           <div class="media">
             <div class="media-left media-middle">
               <a href="#">
@@ -37,10 +37,10 @@
         </div>
       </div>
       <div class="row" style="margin-top:25px;">
-        <div class="col-lg-12" class="location">
+        <div class="col-sm-12" class="location">
           <h1>L'agence callipolis-investigation</h1>
           <div class="row">
-            <div class="col-lg-12">
+            <div class="col-sm-12">
               <div class="float-center">
                 <div>
                   <div style="float:left">
@@ -54,12 +54,12 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-12">
+            <div class="col-sm-12">
               <p style="color:#30B8B8;">Nous Intervenons sur toute la région Occitanie.</p>
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-offset-2 col-lg-8">
+            <div class="col-sm-offset-2 col-sm-8">
               <p style="color:#F3AB01">Nous pouvons également intervenir partout en france</p>
             </div>
           </div>
@@ -67,24 +67,24 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-6">
+    <div class="col-md-6">
       <div class="row">
-        <div class="col-lg-offset-3">
+        <div class="col-md-offset-3">
           <app-contact-form></app-contact-form>
         </div>
       </div>
       <div class="row" style="margin-top:50px;">
-        <div class="col-lg-offset-1 col-lg-8">
+        <div class="col-sm-offset-1 col-sm-8">
           <h6>L'agence callipolis-investigation intervient notamment à :</h6>
           <div class="row" style="color: #7F7F7F">
-            <div class="col-lg-6">
+            <div class="col-xs-6">
               <ul style="list-style: none;">
                 <ng-container *ngFor="let town of company.mainTowns; index as i" class="row">
                   <li *ngIf="i < company.mainTowns.length / 2">- {{town}}</li>
                 </ng-container>
               </ul>
             </div>
-            <div class="col-lg-6">
+            <div class="col-xs-6">
               <ul style="list-style: none;">
                 <ng-container *ngFor="let town of company.mainTowns; index as i" class="row">
                   <li *ngIf="i >= company.mainTowns.length / 2">- {{town}}</li>
@@ -97,7 +97,7 @@
     </div>
   </div>
   <div class="row" style="margin-top:25px;">
-    <div class="col-lg-12" style="text-align: center">
+    <div class="col-sm-12" style="text-align: center">
       <h1>Contactez-nous où que vous soyez et quel que soit votre problème.</h1>
       <h4>Nous agirons rapidement, avec efficacité et discrétion.</h4>
     </div>

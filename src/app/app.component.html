@@ -6,44 +6,65 @@
 
 
 <div class="custom-header">
-    <a routerLink="/services">
-      <img src="assets/logo.png" style="height:160px">
-    </a>
-    <div class="pull-right">
-      <div style="padding:15px"><app-social class="pull-right"></app-social></div>
-      <div class="pull-right" style="text-align: right;padding-right:20px;padding-top:10px;">
-        <p>Agence de recherches privées - Détective privé</p>
-        <div style="color: #ffffff;white-space: nowrap;font-size: 15px;">
-          <p>Intervention 7 jours / 7</p>
-          <p>
-            <img src="assets/phone-header.png" width="20" height="20" style="float:left;object-fit: contain;margin-top:3px;">
-            <span style="margin-left:5px;float:left">{{company.phone}}</span>
-            <img src="assets/email-header.png" width="20" height="20" style="margin-left:30px;float:left;object-fit: contain;margin-top:3px;">
-            <span style="margin-left:10px;float:left">{{company.email}}</span>
-          </p>
+  <a routerLink="/services" class="hidden-xs">
+    <img src="assets/logo.png" style="height:160px">
+  </a>
+  <div class="pull-right">
+    <div style="padding:15px"><app-social class="pull-right"></app-social></div>
+    <div class="pull-right" style="text-align: right;padding-right:20px;padding-top:10px;">
+      <div class="row">
+        <div class="hidden-xs col-sm-12">
+          <p>Agence de recherches privées - Détective privé</p>
+        </div>
+          <div class="visible-xs col-sm-12">
+            <p>Détective privé</p>
+          </div>
+      </div>
+      <div style="color: #ffffff;white-space: nowrap;font-size: 15px;">
+        <p>Intervention 7 jours / 7</p>
+        <div class="row">
+          <div class="hidden-xs col-sm-12">
+            <p>
+              <img src="assets/phone-header.png" width="20" height="20" style="float:left;object-fit: contain;margin-top:3px;">
+              <span style="margin-left:5px;float:left">{{company.phone}}</span>
+              <img src="assets/email-header.png" width="20" height="20" style="margin-left:30px;float:left;object-fit: contain;margin-top:3px;">
+              <span style="margin-left:10px;float:left">{{company.email}}</span>
+            </p>
+          </div>
+          <div class="visible-xs col-sm-12">
+            <p style="margin-bottom: 0px;margin-top: -5px">
+              <img src="assets/phone-header.png" width="20" height="20" style="object-fit: contain;margin-top:3px;">
+              <span style="margin-left:5px;">{{company.phone}}</span>
+            </p>
+            <p style="margin-bottom: 0px">
+              <img src="assets/email-header.png" width="20" height="20" style="margin-left:30px;object-fit: contain;margin-top:3px;">
+              <span style="margin-left:10px">{{company.email}}</span>
+            </p>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 </div>
 <nav class="navbar navbar-default" data-spy="affix" data-offset-top="160">
   <app-nav-bar></app-nav-bar>
 </nav>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-12">
+    <div class="col-sm-12">
       <router-outlet></router-outlet>
     </div>
   </div>
   <div class="row custom-footer">
-    <div class="col-lg-3">
+    <div class="col-xs-4">
       <div>
         <div class="row" style="margin-top:10px">
-          <div class="col-lg-12">
+          <div class="col-sm-12">
             <span>Callipolis Investigation</span>
           </div>
         </div>
         <div class="row" style="margin-top:3px">
-          <div class="col-lg-12">
+          <div class="col-sm-12">
             <div style="margin-left: -5px">
               <app-social></app-social>
             </div>
@@ -51,8 +72,8 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-6">
-      <div *ngIf="footerIntroduces" class="float-center" style="margin-top:32px">
+    <div class="col-xs-4">
+      <div *ngIf="footerIntroduces" class="float-center" style="margin-top:28px">
         <div>
           <ng-container *ngFor="let footerIntroduce of footerIntroduces; index as i">
             <span *ngIf="i !== 0"> - </span>
@@ -61,8 +82,8 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-3">
-      <div style="margin-top:10px">
+    <div class="col-xs-4">
+      <div style="margin-top:10px;margin-bottom:10px">
         <p dir="rtl" style="margin-bottom:0px">Devis Gratuit<br/>Intervention 7 jours / 7<br/>en Occitanie et dans toute la France</p>
       </div>
     </div>

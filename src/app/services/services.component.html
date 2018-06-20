@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-sm-12">
     <div class="row">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 
@@ -32,30 +32,32 @@
     </div>
 
     <div *ngFor="let service of services; index as i" class="row">
-      <div class="service-block block col-lg-8 {{i % 2 === 0 ? 'col-lg-offset-1' : 'col-lg-offset-3'}}">
-        <div class="media">
-          <div *ngIf="i % 2 === 0" class="media-left media-middle">
-            <a href="#">
-              <img class="media-object img-circle logo"
-                  [ngStyle]="{'backgroundColor': service.color}"
-                  src="{{getLogoUrl(service)}}"
-              >
-            </a>
-          </div>
-          <div class="media-body">
-            <h3 style="text-align:center">{{service.title}}</h3>
-            <span [innerHTML]="service.summary | safeHtml" style="text-align:justify;"></span>
-            <div [ngClass]="i % 2 === 0 ? 'pull-right' : 'pull-left'">
-              <a class="btn btn-primary" routerLink="/services/{{service.id}}">En savoir plus</a>
+      <div class="col-sm-8 {{i % 2 === 0 ? 'col-sm-offset-1' : 'col-sm-offset-3'}}">
+        <div class="service-block block">
+          <div class="media">
+            <div *ngIf="i % 2 === 0" class="media-left media-middle">
+              <a href="#">
+                <img class="media-object img-circle logo"
+                    [ngStyle]="{'backgroundColor': service.color}"
+                    src="{{getLogoUrl(service)}}"
+                >
+              </a>
             </div>
-      	  </div>
-          <div *ngIf="i % 2 === 1" class="media-right media-middle">
-            <a href="#">
-              <img class="media-object img-circle logo"
-                  [ngStyle]="{'backgroundColor': service.color}"
-                  src="{{getLogoUrl(service)}}"
-              >
-            </a>
+            <div class="media-body">
+              <h3 style="text-align:center">{{service.title}}</h3>
+              <span [innerHTML]="service.summary | safeHtml" style="text-align:justify;"></span>
+              <div [ngClass]="i % 2 === 0 ? 'pull-right' : 'pull-left'">
+                <a class="btn btn-primary" routerLink="/services/{{service.id}}">En savoir plus</a>
+              </div>
+        	  </div>
+            <div *ngIf="i % 2 === 1" class="media-right media-middle">
+              <a href="#">
+                <img class="media-object img-circle logo"
+                    [ngStyle]="{'backgroundColor': service.color}"
+                    src="{{getLogoUrl(service)}}"
+                >
+              </a>
+            </div>
           </div>
         </div>
       </div>

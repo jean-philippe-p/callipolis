@@ -1,46 +1,54 @@
 
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-left">
-        <li class="dropdown">
-          <input data-toggle="dropdown" type="text" class="form-control search-input search-input-navbar" placeholder="Recherche..." #searchBox (keyup)="search(searchBox.value)" >
-          <ul class="search-result search-result-navbar">
-            <li *ngFor="let search_match of search_matches">
-              <a routerLink="{{search_match.route}}">
-                {{search_match.title}}
+<div class="navbar-header">
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+</div>
+<div id="bs-example-navbar-collapse-1" class="navbar-collapse collapse">
+  <ul class="nav navbar-nav navbar-left">
+    <li class="dropdown">
+      <input data-toggle="dropdown" type="text" class="form-control search-input search-input-navbar" placeholder="Recherche..." #searchBox (keyup)="search(searchBox.value)" >
+      <ul class="search-result search-result-navbar">
+        <li *ngFor="let search_match of search_matches">
+          <a routerLink="{{search_match.route}}">
+            {{search_match.title}}
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <li><a routerLink="/services" class="hvr-underline-from-center">Accueil</a></li>
+    <li class="dropdown">
+      <a href="#" data-toggle="dropdown" class="hvr-underline-from-center">Service<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li *ngFor="let summary_service of summary_services" class="dropdown-submenu">
+          <a routerLink="/services/{{summary_service.id}}" class="dropdown-toggle" data-toggle="dropdown">
+            <div class="link-container"><span class="link-text">{{summary_service.title}}</span></div>
+          </a>
+          <ul class="dropdown-menu">
+            <li *ngFor="let sub_service of summary_service.subServices">
+              <a routerLink="/services/{{summary_service.id}}/sub-services/{{sub_service.id}}" >
+                <div class="link-container"><span class="link-text">{{sub_service.title}}</span></div>
               </a>
             </li>
           </ul>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a routerLink="/services" class="hvr-underline-from-center">Accueil</a></li>
-        <li class="dropdown">
-          <a href="#" data-toggle="dropdown" class="hvr-underline-from-center">Service<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li *ngFor="let summary_service of summary_services" class="dropdown-submenu">
-              <a routerLink="/services/{{summary_service.id}}" class="dropdown-toggle" data-toggle="dropdown">
-                <div class="link-container"><span class="link-text">{{summary_service.title}}</span></div>
-              </a>
-              <ul class="dropdown-menu">
-                <li *ngFor="let sub_service of summary_service.subServices">
-                  <a routerLink="/services/{{summary_service.id}}/sub-services/{{sub_service.id}}" >
-                    <div class="link-container"><span class="link-text">{{sub_service.title}}</span></div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
+    </li>
+    <li class="dropdown">
+      <a href="#" data-toggle="dropdown" class="hvr-underline-from-center">Qui sommes-nous ?<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li *ngFor="let introduce of introduces">
+          <a routerLink="/introduces/{{introduce.id}}">
+            <div class="link-container"><span class="link-text">{{introduce.title}}</span></div>
+          </a>
         </li>
-        <li class="dropdown">
-          <a href="#" data-toggle="dropdown" class="hvr-underline-from-center">Qui sommes-nous ?<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li *ngFor="let introduce of introduces">
-              <a routerLink="/introduces/{{introduce.id}}">
-                <div class="link-container"><span class="link-text">{{introduce.title}}</span></div>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li><a routerLink="/contact" class="hvr-underline-from-center">Contact</a></li>
       </ul>
-    </div>
+    </li>
+    <li><a routerLink="/contact" class="hvr-underline-from-center">Contact</a></li>
+  </ul>
+</div>

@@ -25,20 +25,20 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-lg-12 sub-service-resume">
+              <div class="col-sm-12 sub-service-resume">
                   <span [innerHTML]="selected_sub_service.summary | safeHtml"></span>
               </div>
             </div>
             <div class="row">
-              <div class="col-lg-12">
+              <div class="col-sm-12">
                   <span [innerHTML]="selected_sub_service.text | safeHtml"></span>
               </div>
             </div>
           </div>
           <div *ngIf="!selected_sub_service">
-            <div class="col-lg-6">
+            <div class="col-sm-6">
               <ng-template ngFor let-sub_service [ngForOf]="main_service.subServices" let-i="index">
-                <div *ngIf="i<=split_index" class="col-lg-12  sub-service-block block">
+                <div *ngIf="i<=split_index" class="col-sm-12  sub-service-block block">
                   <img class="img-circle"
                     [ngStyle]="{'backgroundColor': sub_service.color}"
                     src="{{getLogoUrl(sub_service)}}"
@@ -50,9 +50,9 @@
                 </div>
               </ng-template>
             </div>
-            <div class="col-lg-6" style="padding-left:10px;padding-right:20px">
+            <div class="col-sm-6" style="padding-left:10px;padding-right:20px">
               <ng-template ngFor let-sub_service [ngForOf]="main_service.subServices" let-i="index">
-                <div *ngIf="i>split_index" class="col-lg-12  sub-service-block block">
+                <div *ngIf="i>split_index" class="col-sm-12  sub-service-block block">
                   <img class="img-circle"
                     [ngStyle]="{'backgroundColor': sub_service.color}"
                     src="{{getLogoUrl(sub_service)}}"
@@ -67,7 +67,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-4 col-sm-5">
+      <div class="hidden-xs col-lg-3 col-md-4 col-sm-5">
         <div *ngIf="main_service" id="contact-form">
           <app-contact-form [mainService]="main_service" [subService]="selected_sub_service" [container]="getContactContainer()"></app-contact-form>
         </div>
@@ -77,7 +77,7 @@
   <div *ngIf="selected_sub_service">
     <app-important [articles]="selected_sub_service.articles" [important]="selected_sub_service.important"></app-important>
     <div class="row" style="background-color:#d8d8d8;margin-top:-50px">
-      <div class="col-lg-12">
+      <div class="col-sm-12">
         <div class="float-center">
           <div>
             <a style="text-decoration: none;" routerLink="/introduces/3">

@@ -36,7 +36,7 @@
             </div>
           </div>
           <div *ngIf="!selected_sub_service">
-            <div class="col-sm-6">
+            <div class="col-md-6">
               <ng-template ngFor let-sub_service [ngForOf]="main_service.subServices" let-i="index">
                 <div *ngIf="i<=split_index" class="col-sm-12  sub-service-block block">
                   <img class="img-circle"
@@ -50,7 +50,7 @@
                 </div>
               </ng-template>
             </div>
-            <div class="col-sm-6" style="padding-left:10px;padding-right:20px">
+            <div class="col-md-6" style="padding-left:10px;padding-right:20px">
               <ng-template ngFor let-sub_service [ngForOf]="main_service.subServices" let-i="index">
                 <div *ngIf="i>split_index" class="col-sm-12  sub-service-block block">
                   <img class="img-circle"

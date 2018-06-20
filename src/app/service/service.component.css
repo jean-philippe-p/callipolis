@@ -1,5 +1,6 @@
 .service {
   padding:50px;
+  padding-right: 25px;
   text-align:justify;
 }
 
@@ -51,8 +52,4 @@
 
 img {
     object-fit: contain;
-}
-
-#contact-form {
-  margin-right: -15px;
 }

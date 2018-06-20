@@ -91,11 +91,9 @@ export class ContactFormComponent implements OnInit, OnDestroy {
         }
         if (position === 'static') {
           if ($(window).scrollTop() > $('.sticky-contact-form').offset().top - 75) {
-            let width = $('.sticky-contact-form').width();
             $('.sticky-contact-form').data('original-offset-top', $('.sticky-contact-form').offset().top);
             $('.sticky-contact-form').css('position', 'fixed');
             $('.sticky-contact-form').css('top', '75px');
-            $('.sticky-contact-form').width(width);
           }
         }
         if (position === 'absolute') {
@@ -103,10 +101,8 @@ export class ContactFormComponent implements OnInit, OnDestroy {
             this.previousScrollTop > $(window).scrollTop()
             && $(window).scrollTop() + 75 < $('.sticky-contact-form').offset().top
           ) {
-            let width = $('.sticky-contact-form').width();
             $('.sticky-contact-form').css('position', 'fixed');
             $('.sticky-contact-form').css('top', '75px');
-            $('.sticky-contact-form').width(width);
           }
         }
         this.previousScrollTop = $(window).scrollTop();

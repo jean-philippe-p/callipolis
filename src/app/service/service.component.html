@@ -5,7 +5,7 @@
       <div [innerHTML]="main_service.summary | safeHtml"  class="service-resume"></div>
     </div>
     <div class="row service-infos">
-      <div class="col-lg-9">
+      <div class="col-lg-9 col-md-8 col-sm-7">
         <div class="row">
           <div *ngIf="selected_sub_service" class="selected-sub-service">
             <div class="row">
@@ -67,11 +67,9 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-3">
-        <div id="contact-form">
-          <div *ngIf="main_service" class="row">
-            <app-contact-form [mainService]="main_service" [subService]="selected_sub_service" [container]="getContactContainer()"></app-contact-form>
-          </div>
+      <div class="col-lg-3 col-md-4 col-sm-5">
+        <div *ngIf="main_service" id="contact-form">
+          <app-contact-form [mainService]="main_service" [subService]="selected_sub_service" [container]="getContactContainer()"></app-contact-form>
         </div>
       </div>
     </div>

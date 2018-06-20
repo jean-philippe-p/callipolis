@@ -1,54 +1,56 @@
-<div class="row side-block sticky-contact-form">
-  <div class="col-lg-12">
-    <h1 *ngIf="mainService">CONTACT</h1>
-    <h3 *ngIf="!mainService" style="text-align: center">Demande d'une étude pesonnalisée</h3>
-    <form (ngSubmit)="onSubmit()" #contactForm="ngForm" id="contactForm">
-      <div class="form-group">
-        <label for="phone">Téléphone :</label>
-        <input type="text" class="form-control" id="phone"
-            [(ngModel)]="model.phone" name="phone">
-        <div [hidden]="checkPhone(true)" class="alert alert-danger">
-          téléphone invalide
+<div class="side-block sticky-contact-form">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 *ngIf="mainService">CONTACT</h1>
+      <h3 *ngIf="!mainService" style="text-align: center">Demande d'une étude pesonnalisée</h3>
+      <form (ngSubmit)="onSubmit()" #contactForm="ngForm" id="contactForm">
+        <div class="form-group">
+          <label for="phone">Téléphone :</label>
+          <input type="text" class="form-control" id="phone"
+              [(ngModel)]="model.phone" name="phone">
+          <div [hidden]="checkPhone(true)" class="alert alert-danger">
+            téléphone invalide
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="email">Email :</label>
-        <input type="email" class="form-control" id="email"
-            [(ngModel)]="model.email" name="email" #email="ngModel">
-        <div [hidden]="checkEmail(true)" class="alert alert-danger">
-          email invalide
+        <div class="form-group">
+          <label for="email">Email :</label>
+          <input type="email" class="form-control" id="email"
+              [(ngModel)]="model.email" name="email" #email="ngModel">
+          <div [hidden]="checkEmail(true)" class="alert alert-danger">
+            email invalide
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="town">Ville :</label>
-        <input type="text" class="form-control search-input search-input-contact" id="town" name="town"
-            (keyup)="search()" [(ngModel)]="townInput" autocomplete="off">
-        <ul class="search-result search-result-contact">
-          <li *ngFor="let town of towns$ | async" (click)="setTown(town)"><a>{{town.name}} ({{town.codePostal}})</a></li>
-        </ul>
-      </div>
-      <div *ngIf="mainService" class="form-group">
-        <label for="service">Votre demande concerne :</label>
-        <input *ngIf="subService" type="text" class="form-control" id="service"
-            [(ngModel)]="serviceInput" name="service" [value]="subService.title" readonly>
-        <select *ngIf="!subService" class="form-control" id="service"
-            required
-            [(ngModel)]="serviceInput" name="service"
-            #service="ngModel">
-          <option *ngFor="let service of mainService.subServices" [value]="service.title">{{service.title}}</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Informations supplémentaires :</label>
-        <div class="input-group">
-          <textarea class="form-control informations" id="informations" name="informations"
-            [(ngModel)]="contactService.informations"></textarea>
-          <span class="input-group-btn">
-            <button class="btn btn-default btn-infos glyphicon glyphicon-pencil" type="button" data-toggle="modal" data-target="#informations-modal"></button>
-          </span>
+        <div class="form-group">
+          <label for="town">Ville :</label>
+          <input type="text" class="form-control search-input search-input-contact" id="town" name="town"
+              (keyup)="search()" [(ngModel)]="townInput" autocomplete="off">
+          <ul class="search-result search-result-contact">
+            <li *ngFor="let town of towns$ | async" (click)="setTown(town)"><a>{{town.name}} ({{town.codePostal}})</a></li>
+          </ul>
         </div>
-      </div>
-      <button type="submit" class="btn btn-primary" [disabled]="!contactForm.form.valid || !checkForm()" data-toggle="modal" data-target="#response-modal">Envoyer</button>
-    </form>
+        <div *ngIf="mainService" class="form-group">
+          <label for="service">Votre demande concerne :</label>
+          <input *ngIf="subService" type="text" class="form-control" id="service"
+              [(ngModel)]="serviceInput" name="service" [value]="subService.title" readonly>
+          <select *ngIf="!subService" class="form-control" id="service"
+              required
+              [(ngModel)]="serviceInput" name="service"
+              #service="ngModel">
+            <option *ngFor="let service of mainService.subServices" [value]="service.title">{{service.title}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Informations supplémentaires :</label>
+          <div class="input-group">
+            <textarea class="form-control informations" id="informations" name="informations"
+              [(ngModel)]="contactService.informations"></textarea>
+            <span class="input-group-btn">
+              <button class="btn btn-default btn-infos glyphicon glyphicon-pencil" type="button" data-toggle="modal" data-target="#informations-modal"></button>
+            </span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!contactForm.form.valid || !checkForm()" data-toggle="modal" data-target="#response-modal">Envoyer</button>
+      </form>
+    </div>
   </div>
 </div>

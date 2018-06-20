@@ -46,12 +46,13 @@ export class NavBarComponent implements OnInit {
   }
 
   search(search: string) {
+    search = search.toLowerCase();
     this.search_matches = [];
     if (search.length > 2) {
       for (let i = 0; i < this.summary_services.length; i++) {
         for (let j = 0; j < this.summary_services[i].subServices.length; j++) {
           for (let k = 0; k < this.summary_services[i].subServices[j].keyWords.length; k++) {
-            if (this.summary_services[i].subServices[j].keyWords[k].includes(search)) {
+            if (this.summary_services[i].subServices[j].keyWords[k].toLowerCase().includes(search)) {
               this.search_matches.push({
                 route: "/services/" + this.summary_services[i].id + "/sub-services/" + this.summary_services[i].subServices[j].id,
                 title: this.summary_services[i].subServices[j].title

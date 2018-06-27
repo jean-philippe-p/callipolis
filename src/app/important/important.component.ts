@@ -19,9 +19,11 @@ export class ImportantComponent implements OnInit {
   constructor(private genericService: GenericService) { }
 
   ngOnInit() {
-    this.genericService.getResources('Articles', {id: this.articleIds}).subscribe(articles => {
-      this.articles = articles;
-    });
+    if (this.articleIds.length) {
+      this.genericService.getResources('Articles', {id: this.articleIds}).subscribe(articles => {
+        this.articles = articles;
+      });
+    }
   }
 
 }

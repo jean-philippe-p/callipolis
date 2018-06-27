@@ -20,6 +20,7 @@ export class ServiceComponent implements OnInit, DoCheck {
   selected_sub_service: Service;
   main_id: number = -1;
   split_index: number = 0;
+  changeAvailable = true;
 
   constructor(private route: ActivatedRoute, private serviceService: ServiceService) { }
 
@@ -46,12 +47,14 @@ export class ServiceComponent implements OnInit, DoCheck {
   }
 
   changeSubService() {
-    if (this.main_service && this.route.snapshot.paramMap.has('sub-id')) {
+    if (this.changeAvailable && this.main_service && this.route.snapshot.paramMap.has('sub-id')) {
       const sub_id: number = +this.route.snapshot.paramMap.get('sub-id');
 
       if (!this.selected_sub_service || this.selected_sub_service.id !== sub_id) {
+        this.changeAvailable = false;
         this.serviceService.getSubService(sub_id).subscribe(sub_service => {
           this.selected_sub_service = sub_service;
+          this.changeAvailable = true;
         });
       }
     } else {

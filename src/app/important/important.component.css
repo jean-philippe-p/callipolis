@@ -42,3 +42,7 @@
   padding-right: 5px;
   overflow-y: scroll;
 }
+
+.panel-group {
+  margin-bottom: 0px;
+}

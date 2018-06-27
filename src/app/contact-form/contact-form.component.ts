@@ -58,17 +58,6 @@ export class ContactFormComponent implements OnInit, OnDestroy {
       switchMap((term: string) => this.contactService.searchTowns(term)),
     );
 
-    // during ngOnInit input subService doesn't seems to be inititalized
-    // due to this behaviour, html input doesn't have any value
-    // so we fix this by retreving subService title thanks to route sub id
-    // there's probably a better way
-    if (this.route.snapshot.paramMap.has('sub-id')) {
-      const sub_id: number = +this.route.snapshot.paramMap.get('sub-id');
-
-      this.serviceService.getSubService(sub_id).subscribe(sub_service => {
-        this.serviceInput = sub_service.title;
-      });
-    }
     this.previousScrollTop = $(window).scrollTop();
   }
 
@@ -132,15 +121,10 @@ export class ContactFormComponent implements OnInit, OnDestroy {
   onSubmit() {
     this.contactService.success = null;
     if (this.subService) {
-      console.log('subservice');
-      console.log(this.subService.id);
       this.model.service = this.subService.id;
     } else if (this.mainService) {
-      console.log('mainservice ' + this.serviceInput);
       for (let i = 0; i < this.mainService.subServices.length; i++) {
         if (this.mainService.subServices[i].title === this.serviceInput) {
-          console.log('subservice');
-          console.log(this.mainService.subServices[i].id);
           this.model.service = this.mainService.subServices[i].id;
         }
       }

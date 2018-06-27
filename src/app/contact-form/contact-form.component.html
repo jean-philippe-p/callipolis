@@ -31,7 +31,7 @@
         <div *ngIf="mainService" class="form-group">
           <label for="service">Votre demande concerne :</label>
           <input *ngIf="subService" type="text" class="form-control" id="service"
-              [(ngModel)]="serviceInput" name="service" [value]="subService.title" readonly>
+              [ngModel]="subService.title" name="service" readonly>
           <select *ngIf="!subService" class="form-control" id="service"
               required
               [(ngModel)]="serviceInput" name="service"

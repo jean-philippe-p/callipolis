@@ -39,7 +39,7 @@ export class ContactService {
       return of([]);
     }
     return this.http.get<Town[]>(this.serviceUrl + '/Towns?search=' + term).pipe(
-      tap(_ => console.log(`found heroes matching "${term}"`)),
+      tap(_ => console.log(`found matching "${term}"`)),
       catchError(this.handleError<Town[]>('searchTowns', []))
     );
   }

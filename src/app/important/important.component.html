@@ -36,7 +36,20 @@
         </div>
         <div class="raw">
           <div class="col-xs-12 article-important-body">
-            <div [innerHTML]="articles | safeHtml"></div>
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+              <div *ngFor="let article of articles; let i = index" class="panel panel-default">
+                <div class="panel-heading" role="tab" id="heading-{{i}}">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{i}}" aria-expanded="false">
+                      article {{article.id}}
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapse-{{i}}" class="panel-collapse collapse" role="tabpanel">
+                  <div class="panel-body" [innerHTML]="article.text | safeHtml"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

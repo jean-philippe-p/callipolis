@@ -36,12 +36,10 @@
         <div class="service-block block">
           <div class="media">
             <div *ngIf="i % 2 === 0" class="media-left media-middle">
-              <a href="#">
                 <img class="media-object img-circle logo"
                     [ngStyle]="{'backgroundColor': service.color}"
                     src="{{getLogoUrl(service)}}"
                 >
-              </a>
             </div>
             <div class="media-body">
               <h3 style="text-align:center">{{service.title}}</h3>
@@ -51,12 +49,10 @@
               </div>
         	  </div>
             <div *ngIf="i % 2 === 1" class="media-right media-middle">
-              <a href="#">
                 <img class="media-object img-circle logo"
                     [ngStyle]="{'backgroundColor': service.color}"
                     src="{{getLogoUrl(service)}}"
                 >
-              </a>
             </div>
           </div>
         </div>

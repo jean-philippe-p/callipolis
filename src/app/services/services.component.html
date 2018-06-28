@@ -45,7 +45,7 @@
               <h3 style="text-align:center">{{service.title}}</h3>
               <span [innerHTML]="service.summary | safeHtml" style="text-align:justify;"></span>
               <div [ngClass]="i % 2 === 0 ? 'pull-right' : 'pull-left'">
-                <a class="btn btn-primary" routerLink="/services/{{service.id}}">En savoir plus</a>
+                <a class="btn btn-primary" routerLink="/services/{{service.id}}">En savoir plus »</a>
               </div>
         	  </div>
             <div *ngIf="i % 2 === 1" class="media-right media-middle">

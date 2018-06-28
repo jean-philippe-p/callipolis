@@ -22,26 +22,21 @@ export class ImportantComponent implements OnInit {
     if (this.articleIds.length) {
       this.genericService.getResources('Articles', {id: this.articleIds}).subscribe(articles => {
         this.articles = articles;
+        $(document).ready(function(){
+          $( ".link-article" )
+            .mouseover(function() {
+              var duration = 400;
+              var endPosition = '-' + ($( this ).width() - $( this ).parent().width() + 5) + 'px';
+              $(this).animate({'margin-left': endPosition}, duration);
+            })
+            .mouseout(function() {
+              $( this ).stop();
+              $(this).animate({'margin-left': '0px'}, 100);
+            });
+        });
       });
     }
   }
-
-  public types: string[] = [
-    'code civil',
-    'code pénal',
-    'code des assurances',
-    'code du travail',
-    'code de la consommation',
-    'chambre sociale cassation',
-    'chambre criminelle cassation',
-    'chambre civile 1 cassation',
-    'chambre civile 2 cassation',
-    'conseil d\'état',
-    'directive (ue)',
-    'prestation compensatoire',
-    'réforme',
-    'loi'
-  ];
 
   getArticleTitle(article: Article) {
     switch (article.type) {

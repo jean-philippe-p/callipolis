@@ -21,10 +21,12 @@ export class ServiceComponent implements OnInit, DoCheck {
   main_id: number = -1;
   split_index: number = 0;
   changeAvailable = true;
+  subServiceView: boolean;
 
   constructor(private route: ActivatedRoute, private serviceService: ServiceService) { }
 
   ngOnInit() {
+    this.subServiceView = this.route.snapshot.paramMap.has('sub-id');
     this.changeService();
   }
 

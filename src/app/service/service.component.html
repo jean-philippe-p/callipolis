@@ -7,7 +7,10 @@
     <div class="row service-infos">
       <div class="col-lg-9 col-md-8 col-sm-7">
         <div class="row">
-          <div *ngIf="selected_sub_service" class="selected-sub-service">
+          <div *ngIf="this.subServiceView && !selected_sub_service" class="float-center">
+            <div class="fa fa-circle-o-notch fa-spin" style="font-size:50px;padding:25px"></div>
+          </div>
+          <div *ngIf="this.subServiceView && selected_sub_service" class="selected-sub-service">
             <div class="row">
               <div class="float-center">
                 <div>
@@ -35,7 +38,7 @@
               </div>
             </div>
           </div>
-          <div *ngIf="!selected_sub_service">
+          <div *ngIf="!this.subServiceView">
             <div class="col-md-6">
               <ng-template ngFor let-sub_service [ngForOf]="main_service.subServices" let-i="index">
                 <div *ngIf="i<=split_index" class="col-sm-12  sub-service-block block">
@@ -91,4 +94,7 @@
       </div>
     </div>
   </div>
+</div>
+<div *ngIf="!main_service" class="float-center">
+  <div class="fa fa-circle-o-notch fa-spin" style="font-size:50px;padding:25px"></div>
 </div>

@@ -41,15 +41,15 @@ export class ImportantComponent implements OnInit {
   getArticleTitle(article: Article) {
     switch (article.type) {
       case 'code civil':
-        return `Article ${article.numero} du code civil`;
+        return `Article ${article.numero} du Code civil`;
       case 'code pénal':
-        return `Article ${article.numero} du code pénal`;
+        return `Article ${article.numero} du Code pénal`;
       case 'code des assurances':
-        return `Article ${article.numero} du code des assurances`;
+        return `Article ${article.numero} du Code des assurances`;
       case 'code du travail':
-        return `Article ${article.numero} du code du travail`;
+        return `Article ${article.numero} du Code du travail`;
       case 'code de la consommation':
-        return `Article ${article.numero} du code de la consommation`;
+        return `Article ${article.numero} du Code de la consommation`;
       case 'chambre sociale cassation':
         return `Cour de Cassation, Chambre sociale, du ${article.date}, ${article.numero}`;
       case 'chambre criminelle cassation':

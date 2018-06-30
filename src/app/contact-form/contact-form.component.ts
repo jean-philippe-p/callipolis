@@ -66,7 +66,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
       return;
     }
     this.listener = this.renderer.listenGlobal('window', 'scroll', (evt) => {
-      if ($('.sticky-contact-form').height() + 30 < this.container.height()) {
+      if ($('.sticky-contact-form').height() + 50 < this.container.height()) {
         const position = $('.sticky-contact-form').css('position');
         if (position === 'fixed') {
           if ($(window).scrollTop() + 75 <= $('.sticky-contact-form').data('original-offset-top')) {

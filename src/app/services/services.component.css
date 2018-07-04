@@ -1,4 +1,4 @@
-.service-block {
+.service-horizontal-block {
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -21,4 +21,11 @@
     position: absolute;
     bottom: -30px;
     left: 0;
+}
+
+.service-vertical-block {
+  vertical-align: middle;
+  text-align: center;
+  margin: 5px;
+  margin-bottom: 20px;
 }

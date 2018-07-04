@@ -35,8 +35,8 @@
     </div>
 
     <div *ngFor="let service of services; index as i" class="row">
-      <div class="col-sm-8 {{i % 2 === 0 ? 'col-sm-offset-1' : 'col-sm-offset-3'}}">
-        <div class="service-block block">
+      <div class="hidden-xs col-sm-8 {{i % 2 === 0 ? 'col-sm-offset-1' : 'col-sm-offset-3'}}">
+        <div class="service-horizontal-block block">
           <div class="media">
             <div *ngIf="i % 2 === 0" class="media-left media-middle">
                 <img class="media-object img-circle logo"
@@ -58,6 +58,18 @@
                 >
             </div>
           </div>
+        </div>
+      </div>
+      <div class="hidden-sm hidden-md hidden-lg col-xs-12">
+        <div class="service-vertical-block block">
+          <img class="img-circle logo"
+            [ngStyle]="{'backgroundColor': service.color}"
+            src="{{getLogoUrl(service)}}"
+            alt="Generic placeholder image" width="140" height="140"
+          >
+          <h3>{{service.title}}</h3>
+          <div [innerHTML]="service.summary | safeHtml"></div>
+          <p><a class="btn btn-primary" routerLink="/services/{{service.id}}" role="button">En savoir plus »</a></p>
         </div>
       </div>
     </div>

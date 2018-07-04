@@ -129,6 +129,9 @@ export class ContactFormComponent implements OnInit, OnDestroy {
         }
       }
     }
+    if (this.model.phone) {
+      this.model.phone = this.model.phone.replace(/\s/g, '');
+    }
     this.model.informations = this.contactService.informations;
     this.contactService.setContact(this.model).subscribe(
       contact => this.contactService.success = true,

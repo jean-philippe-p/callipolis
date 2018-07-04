@@ -13,7 +13,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-offset-3" style="color: #F3AB01">
+        <div class="col-sm-offset-3" style="color: #F3AB01">
           <div class="media">
             <div class="media-left media-middle">
               <a href="#">
@@ -38,7 +38,7 @@
       </div>
       <div class="row" style="margin-top:25px;">
         <div class="col-sm-12" class="location">
-          <h1>L'agence callipolis-investigation</h1>
+          <h1 id="title-map-box" [ngStyle]="{'font-size': getFontSize()}">L'agence callipolis-investigation</h1>
           <div class="row">
             <div class="col-sm-12">
               <div class="float-center">
@@ -78,14 +78,14 @@
           <h6>L'agence callipolis-investigation intervient notamment à :</h6>
           <div class="row" style="color: #7F7F7F">
             <div class="col-xs-6">
-              <ul style="list-style: none;">
+              <ul style="list-style: none;white-space: nowrap;">
                 <ng-container *ngFor="let town of company.mainTowns; index as i" class="row">
                   <li *ngIf="i < company.mainTowns.length / 2">- {{town}}</li>
                 </ng-container>
               </ul>
             </div>
             <div class="col-xs-6">
-              <ul style="list-style: none;">
+              <ul style="list-style: none;white-space: nowrap;">
                 <ng-container *ngFor="let town of company.mainTowns; index as i" class="row">
                   <li *ngIf="i >= company.mainTowns.length / 2">- {{town}}</li>
                 </ng-container>
@@ -98,7 +98,7 @@
   </div>
   <div class="row" style="margin-top:25px;">
     <div class="col-sm-12" style="text-align: center">
-      <h1>Contactez-nous où que vous soyez et quel que soit votre problème.</h1>
+      <h1 [ngStyle]="{'font-size': getFontSize()}">Contactez-nous où que vous soyez et quel que soit votre problème.</h1>
       <h4>Nous agirons rapidement, avec efficacité et discrétion.</h4>
     </div>
   </div>

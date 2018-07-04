@@ -12,12 +12,9 @@
         <div class="carousel-inner" role="listbox">
           <div *ngFor="let carouselPart of carousel; index as i" class="{{i === 0 ? 'item active' : 'item'}}">
             <img src="{{getImageUrl(carouselPart.image)}}" alt="...">
-            <div class="carousel-caption" [ngStyle]="{'left': carouselPart.left + '%', 'right': carouselPart.right + '%', 'bottom': carouselPart.bottom + '%', 'padding-bottom': '0px'}">
+            <div class="carousel-caption" [ngStyle]="{'font-size': getFontSize(), 'left': carouselPart.left + '%', 'right': carouselPart.right + '%', 'bottom': carouselPart.bottom + '%', 'padding-bottom': '0px'}">
               <!-- <h3>{{carouselPart.title}}</h3> -->
-              <div class="hidden-xs hidden-sm hidden-md" style="font-size:40px" [innerHTML]="carouselPart.text | safeHtml"></div>
-              <div class="hidden-xs hidden-sm hidden-lg" style="font-size:30px" [innerHTML]="carouselPart.text | safeHtml"></div>
-              <div class="hidden-xs hidden-md hidden-lg" style="font-size:25px" [innerHTML]="carouselPart.text | safeHtml"></div>
-              <div class="hidden-sm hidden-md hidden-lg" style="font-size:20px" [innerHTML]="carouselPart.text | safeHtml"></div>
+              <div [innerHTML]="carouselPart.text | safeHtml"></div>
             </div>
           </div>
         </div>

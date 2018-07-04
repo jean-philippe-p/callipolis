@@ -33,4 +33,8 @@ export class ServicesComponent implements OnInit {
     return this.serviceService.getLogoUrl(id);
   }
 
+  getFontSize() {
+    return (window.innerWidth * window.devicePixelRatio * 0.0277) + 'px';
+  }
+
 }

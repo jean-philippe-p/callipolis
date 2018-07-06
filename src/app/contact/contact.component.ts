@@ -29,7 +29,7 @@ export class ContactComponent implements OnInit {
   }
 
   getFontSize() {
-    return Math.min(this.fontSizeBase, window.innerWidth * window.devicePixelRatio * this.fontSizeRatio) + 'px';
+    return Math.min(this.fontSizeBase, window.innerWidth * this.fontSizeRatio) + 'px';
   }
 
 }

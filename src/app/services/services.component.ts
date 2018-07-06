@@ -34,7 +34,7 @@ export class ServicesComponent implements OnInit {
   }
 
   getFontSize() {
-    return (window.innerWidth * window.devicePixelRatio * 0.0277) + 'px';
+    return (window.innerWidth * 0.03) + 'px';
   }
 
 }

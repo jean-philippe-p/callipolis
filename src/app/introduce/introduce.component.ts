@@ -30,6 +30,7 @@ export class IntroduceComponent implements OnInit, DoCheck {
   changeIntroduce() {
     const id = +this.route.snapshot.paramMap.get('id');
     if (id !== this.id) {
+      $("html, body").animate({scrollTop:0}, 300, 'swing');
       this.id = id;
       this.introduceService.getIntroduce(this.id).subscribe(introduce => {
         this.introduce = introduce;

@@ -1,5 +1,6 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { ServiceService } from '../service.service';
+import { GenericService } from '../generic.service';
 import { MainService, Service } from '../service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -23,7 +24,7 @@ export class ServiceComponent implements OnInit, DoCheck {
   changeAvailable = true;
   subServiceView: boolean;
 
-  constructor(private route: ActivatedRoute, private serviceService: ServiceService) { }
+  constructor(private route: ActivatedRoute, private serviceService: ServiceService, private genericService: GenericService) { }
 
   ngOnInit() {
     this.subServiceView = this.route.snapshot.paramMap.has('sub-id');
@@ -37,22 +38,27 @@ export class ServiceComponent implements OnInit, DoCheck {
   changeService() {
     const id = +this.route.snapshot.paramMap.get('id');
     if (id !== this.main_id) {
+      $("html, body").animate({scrollTop:0}, 300, 'swing');
+
       this.main_id = id;
       this.serviceService.getService(this.main_id).subscribe(main_service => {
         this.main_service = main_service;
         this.setSplitIndex();
-        this.changeSubService();
+        this.changeSubService(false);
       });
     } else {
-      this.changeSubService();
+      this.changeSubService(true);
     }
   }
 
-  changeSubService() {
+  changeSubService(scroll: boolean) {
     if (this.changeAvailable && this.main_service && this.route.snapshot.paramMap.has('sub-id')) {
       const sub_id: number = +this.route.snapshot.paramMap.get('sub-id');
 
       if (!this.selected_sub_service || this.selected_sub_service.id !== sub_id) {
+        if (scroll) {
+          $("html, body").animate({scrollTop:0}, 300, 'swing');
+        }
         this.changeAvailable = false;
         this.serviceService.getSubService(sub_id).subscribe(sub_service => {
           this.selected_sub_service = sub_service;
@@ -90,7 +96,7 @@ export class ServiceComponent implements OnInit, DoCheck {
   }
 
   getLogoUrl(service: Service): string {
-    return this.serviceService.getLogoUrl(service.logo);
+    return this.genericService.getImageUrl(service.logo);
   }
 
   getContactContainer() {

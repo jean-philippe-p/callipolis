@@ -22,12 +22,29 @@ export class GenericService {
     return this.http.get<any>(this.serviceUrl + '/' + resource + '/' + id);
   }
 
-  getResources(resources: string, params: {} = {}): Observable<any> {
-    let query = jQuery.param(params);
-    if (query) {
-      query = '?' + query;
+  getResources(resources: string, params: {} = {}, page: number = null): Observable<any> {
+    let query = '';
+    let pageUrl = '';
+    if (params) {
+      query = '?' + jQuery.param(params);
     }
-    return this.http.get<any>(this.serviceUrl + '/' + resources + query);
+    if (page !== null) {
+      pageUrl = page < 0 ? '/0' : '/' + page;
+    }
+    return this.http.get<any>(this.serviceUrl + '/' + resources + pageUrl + query);
+  }
+
+  getResourcesCount(resources: string, params: {} = {}): Observable<any> {
+    let query = '';
+    let pageUrl = '';
+    if (params) {
+      query = '?' + jQuery.param(params);
+    }
+    return this.http.get<any>(this.serviceUrl + '/count/' + resources + query);
+  }
+
+  getImageUrl(serviceId: string): string {
+    return this.serviceUrl + '/Image/' + serviceId;
   }
 
 }

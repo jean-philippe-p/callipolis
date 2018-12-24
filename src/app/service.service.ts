@@ -44,8 +44,4 @@ export class ServiceService {
     return this.http.get<Service>(this.serviceUrl + '/SubService/' + id);
   }
 
-  getLogoUrl(serviceId: string): string {
-    return this.serviceUrl + '/Logo/' + serviceId;
-  }
-
 }

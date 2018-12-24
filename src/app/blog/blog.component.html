@@ -1,0 +1,72 @@
+<div class="articles">
+  <div class="row description">
+    <h1>Blog</h1>
+  </div>
+  <div class="row articles-container">
+    <div class="col-lg-9 col-md-8 col-sm-7">
+      <div class="row">
+        <div class="col-md-6">
+          <ng-template ngFor let-articlesIndex [ngForOf]="leftColumnIndexes">
+            <div class="col-sm-12  article-block block">
+              <img *ngIf="articles[articlesIndex].image"
+                src="{{getImageUrl(articles[articlesIndex].image)}}"
+                alt="Generic placeholder image" style="max-width:100%"
+              >
+              <h2>{{articles[articlesIndex].title}}</h2>
+              <div [innerHTML]="articles[articlesIndex].resume | safeHtml"></div>
+              <p><a class="btn btn-default" routerLink="/blog/article/{{articles[articlesIndex].id}}" role="button">En savoir plus »</a></p>
+            </div>
+          </ng-template>
+        </div>
+        <div class="col-md-6" style="padding-left:10px;padding-right:20px">
+          <ng-template ngFor let-articlesIndex [ngForOf]="rightColumnIndexes">
+            <div class="col-sm-12  article-block block">
+              <img *ngIf="articles[articlesIndex].image"
+                src="{{getImageUrl(articles[articlesIndex].image)}}"
+                alt="Generic placeholder image" style="max-width:100%"
+              >
+              <h2>{{articles[articlesIndex].title}}</h2>
+              <div [innerHTML]="articles[articlesIndex].resume | safeHtml"></div>
+              <p><a class="btn btn-default" routerLink="/blog/article/{{articles[articlesIndex].id}}" role="button">En savoir plus »</a></p>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      <div class="row">
+        <div class="float-center">
+          <div>
+            <nav aria-label="Page navigation">
+              <ul class="pagination">
+                <li *ngIf="currentPageOffset > 4">
+                  <a href="#" aria-label="Previous" (click)="incrementOffset(-5)">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li *ngIf="currentPageOffset < maxPage"><a routerLink="/blog/articles/{{currentPageOffset + 1}}">{{currentPageOffset + 1}}</a></li>
+                <li *ngIf="currentPageOffset + 1 < maxPage"><a routerLink="/blog/articles/{{currentPageOffset + 2}}">{{currentPageOffset + 2}}</a></li>
+                <li *ngIf="currentPageOffset + 2 < maxPage"><a routerLink="/blog/articles/{{currentPageOffset + 3}}">{{currentPageOffset + 3}}</a></li>
+                <li *ngIf="currentPageOffset + 3 < maxPage"><a routerLink="/blog/articles/{{currentPageOffset + 4}}">{{currentPageOffset + 4}}</a></li>
+                <li *ngIf="currentPageOffset + 4 < maxPage"><a routerLink="/blog/articles/{{currentPageOffset + 5}}">{{currentPageOffset + 5}}</a></li>
+                <li *ngIf="currentPageOffset + 5 < maxPage">
+                  <a href="#" aria-label="Next" (click)="incrementOffset(5)">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hidden-xs col-lg-3 col-md-4 col-sm-5">
+      <div>
+        <app-contact-fixed-form [container]="getContactContainer()"></app-contact-fixed-form>
+      </div>
+    </div>
+  </div>
+  <div class="row hidden-sm hidden-md hidden-lg">
+    <div class="col-sm-12">
+        <app-contact-form></app-contact-form>
+    </div>
+  </div>
+</div>

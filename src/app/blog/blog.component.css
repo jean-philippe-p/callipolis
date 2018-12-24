@@ -1,0 +1,17 @@
+.articles {
+  padding:50px;
+  padding-right: 25px;
+  text-align:justify;
+}
+
+.description {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.article-block {
+  vertical-align: middle;
+  text-align: center;
+  margin: 5px;
+  margin-bottom: 20px;
+}

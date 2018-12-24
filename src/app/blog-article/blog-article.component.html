@@ -1,0 +1,49 @@
+<div class="article">
+  <div class="row article-container">
+    <div class="col-lg-9 col-md-8 col-sm-7"style="padding-right: 40px;">
+      <div class="row description">
+        <h1>{{blogArticle.title}}</h1>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div *ngFor="let element of blogArticle.blogArticleElements" style="margin-bottom:25px">
+            <div *ngIf="isChapterElement(element)">
+              <div [innerHTML]="element.text | safeHtml"></div>
+            </div>
+            <div *ngIf="isImageElement(element)">
+              <figure>
+                <img src="{{getImageUrl(element.image)}}" alt="Generic placeholder image" style="max-width:100%">
+                <figcaption *ngIf="element.legend">{{element.legend}}</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hidden-xs col-lg-3 col-md-4 col-sm-5">
+      <div>
+        <app-contact-fixed-form [container]="getContactContainer()"></app-contact-fixed-form>
+      </div>
+    </div>
+  </div>
+  <div class="row hidden-sm hidden-md hidden-lg" style="padding-bottom:15px">
+    <div class="col-sm-12" style="margin-left:-20px">
+      <button [disabled]="! previousId" class="btn btn-default" routerLink="/blog/article/{{previousId}}" role="button">
+        <span class="glyphicon glyphicon-menu-left"></span>
+        Précédent
+      </button>
+      <button [disabled]="! followingId" class="btn btn-default" routerLink="/blog/article/{{followingId}}" role="button" style="float:right;">
+        Suivant
+        <span class="glyphicon glyphicon-menu-right"></span>
+      </button>
+    </div>
+  </div>
+  <div class="row hidden-sm hidden-md hidden-lg">
+    <div class="col-sm-12" style="margin-left:-20px">
+        <app-contact-form></app-contact-form>
+    </div>
+  </div>
+</div>
+<div *ngIf="blogArticle.id" class="hidden-xs">
+  <app-carousel-article [currentArticle]="blogArticle"></app-carousel-article>
+</div>

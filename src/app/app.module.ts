@@ -22,6 +22,10 @@ import { SafeHtmlPipe } from './safe-html.pipe';
 import { MessageModalComponent } from './message-modal/message-modal.component';
 import { ResponseModalComponent } from './response-modal/response-modal.component';
 import { ImportantComponent } from './important/important.component';
+import { BlogComponent } from './blog/blog.component';
+import { BlogArticleComponent } from './blog-article/blog-article.component';
+import { ContactFixedFormComponent } from './contact-fixed-form/contact-fixed-form.component';
+import { CarouselArticleComponent } from './carousel-article/carousel-article.component';
 
 
 @NgModule({
@@ -38,7 +42,11 @@ import { ImportantComponent } from './important/important.component';
     SafeHtmlPipe,
     MessageModalComponent,
     ResponseModalComponent,
-    ImportantComponent
+    ImportantComponent,
+    BlogComponent,
+    BlogArticleComponent,
+    ContactFixedFormComponent,
+    CarouselArticleComponent
   ],
   imports: [
     BrowserModule,

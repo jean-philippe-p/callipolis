@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="row">
+      <div id="container">
+        <div style="left:0px;box-shadow:10px 0px 5px -10px #555" class="hide-fade">
+          <div style="float:right;margin-top:175px;padding-right:25px;">
+            <button type="button" (click)="moveLeft()" [disabled]="! scrollingAvailable" class="btn btn-default">
+              <span class="glyphicon glyphicon-menu-left"></span>
+            </button>
+          </div>
+        </div>
+        <div style="right:0px;box-shadow:-10px 0px 5px -10px #555" class="hide-fade">
+          <div style="margin-top:175px;padding-left:25px;">
+            <button type="button" (click)="moveRight()" [disabled]="! scrollingAvailable" class="btn btn-default">
+              <span class="glyphicon glyphicon-menu-right"></span>
+            </button>
+          </div>
+        </div>
+        <div id="container-inside">
+          <ng-container *ngFor="let article of displayedArticles; let i = index">
+            <div class="col-sm-2" style="width:300px;" id="{{i}}">
+              <div *ngIf="displayedArticles[i]" class="article-block block">
+                <img *ngIf="displayedArticles[i].image"
+                  src="{{getImageUrl(displayedArticles[i].image)}}"
+                  alt="Generic placeholder image" style="max-width:100%"
+                >
+                <h3>{{displayedArticles[i].title}}</h3>
+                <p><a class="btn btn-default" routerLink="/blog/article/{{displayedArticles[i].id}}" role="button">En savoir plus »</a></p>
+              </div>
+            </div>
+          </ng-container>
+          <!--
+          <div class="col-sm-2" style="width:300px;" id="1">
+            <div *ngIf="articles[1]" class="article-block block">
+              <img *ngIf="articles[1].image"
+                src="{{getImageUrl(articles[1].image)}}"
+                alt="Generic placeholder image" style="max-width:100%"
+              >
+              <h3>{{articles[1].title}}</h3>
+              <p><a class="btn btn-default" routerLink="/blog/article/{{articles[1].id}}" role="button">En savoir plus »</a></p>
+            </div>
+          </div>
+          <div class="col-sm-2" style="width:300px;" id="2">
+            <div *ngIf="articles[2]" class="article-block block">
+              <img *ngIf="articles[2].image"
+                src="{{getImageUrl(articles[2].image)}}"
+                alt="Generic placeholder image" style="max-width:100%"
+              >
+              <h3>{{articles[2].title}}</h3>
+              <p><a class="btn btn-default" routerLink="/blog/article/{{articles[2].id}}" role="button">En savoir plus »</a></p>
+            </div>
+          </div>
+          <div class="col-sm-2" style="width:300px;" id="3">
+            <div *ngIf="articles[2]" class="article-block block">
+              <img *ngIf="articles[2].image"
+                src="{{getImageUrl(articles[2].image)}}"
+                alt="Generic placeholder image" style="max-width:100%"
+              >
+              <h3>{{articles[2].title}}</h3>
+              <p><a class="btn btn-default" routerLink="/blog/article/{{articles[2].id}}" role="button">En savoir plus »</a></p>
+            </div>
+          </div>
+          <div class="col-sm-2" style="width:300px;" id="4">
+            <div *ngIf="articles[2]" class="article-block block">
+              <img *ngIf="articles[2].image"
+                src="{{getImageUrl(articles[2].image)}}"
+                alt="Generic placeholder image" style="max-width:100%"
+              >
+              <h3>{{articles[2].title}}</h3>
+              <p><a class="btn btn-default" routerLink="/blog/article/{{articles[2].id}}" role="button">En savoir plus »</a></p>
+            </div>
+          </div>
+        -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

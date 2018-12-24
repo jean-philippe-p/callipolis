@@ -2,10 +2,8 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Renderer } from '@angular/core';
 import { Contact } from '../contact';
 import { Town } from '../town';
-import { ServiceService } from '../service.service';
 import { ContactService } from '../contact.service';
 import { MainService, Service } from '../service';
-import { ActivatedRoute } from '@angular/router';
 import * as $ from 'jquery';
 import { Observable } from 'rxjs/Observable';
 import { Subject }    from 'rxjs/Subject';
@@ -26,9 +24,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
 
   @Input() mainService: MainService;
   @Input() subService: Service;
-  @Input() container;
   model: Contact;
-  previousScrollTop;
   listener;
   townInput;
   serviceInput;
@@ -37,14 +33,11 @@ export class ContactFormComponent implements OnInit, OnDestroy {
   private searchTerms = new Subject<string>();
 
   constructor(
-    private route: ActivatedRoute,
     private renderer: Renderer,
-    private serviceService: ServiceService,
     public contactService: ContactService
   ) { }
 
   ngOnInit() {
-    this.listenScroll();
     this.model = new Contact();
 
     this.towns$ = this.searchTerms.pipe(
@@ -58,51 +51,11 @@ export class ContactFormComponent implements OnInit, OnDestroy {
       switchMap((term: string) => this.contactService.searchTowns(term)),
     );
 
-    this.previousScrollTop = $(window).scrollTop();
-
     $( ".search-input-contact" ).focusin(function() {
       $( ".search-result-contact" ).css( "display", "block" );
     });
     $( ".search-input-contact" ).focusout(function() {
       setTimeout(function() {$( ".search-result-contact" ).css( "display", "none" )}, 300);
-    });
-  }
-
-  listenScroll() {
-    if (!this.container) {
-      return;
-    }
-    this.listener = this.renderer.listenGlobal('window', 'scroll', (evt) => {
-      if ($('.sticky-contact-form').height() + 50 < this.container.height()) {
-        const position = $('.sticky-contact-form').css('position');
-        if (position === 'fixed') {
-          if ($(window).scrollTop() + 75 <= $('.sticky-contact-form').data('original-offset-top')) {
-            $('.sticky-contact-form').css('position', 'static');
-          }
-          else if ($('.sticky-contact-form').offset().top + $('.sticky-contact-form').height() + 30 >= this.container.offset().top + this.container.height()) {
-            const top = (this.container.height() - 30 - $('.sticky-contact-form').height()) + 'px';
-            $('.sticky-contact-form').css('position', 'absolute')
-            $('.sticky-contact-form').css('top', top);
-          }
-        }
-        if (position === 'static') {
-          if ($(window).scrollTop() > $('.sticky-contact-form').offset().top - 75) {
-            $('.sticky-contact-form').data('original-offset-top', $('.sticky-contact-form').offset().top);
-            $('.sticky-contact-form').css('position', 'fixed');
-            $('.sticky-contact-form').css('top', '75px');
-          }
-        }
-        if (position === 'absolute') {
-          if (
-            this.previousScrollTop > $(window).scrollTop()
-            && $(window).scrollTop() + 75 < $('.sticky-contact-form').offset().top
-          ) {
-            $('.sticky-contact-form').css('position', 'fixed');
-            $('.sticky-contact-form').css('top', '75px');
-          }
-        }
-        this.previousScrollTop = $(window).scrollTop();
-      }
     });
   }
 
@@ -155,9 +108,6 @@ export class ContactFormComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.contactService.informations = null;
-    if(this.listener) {
-      this.listener();
-    }
   }
 
 }

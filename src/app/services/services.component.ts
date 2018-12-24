@@ -26,11 +26,11 @@ export class ServicesComponent implements OnInit {
   }
 
   getLogoUrl(service: MainService): string {
-    return this.serviceService.getLogoUrl(service.logo);
+    return this.genericService.getImageUrl(service.logo);
   }
 
   getImageUrl(id: string): string {
-    return this.serviceService.getLogoUrl(id);
+    return this.genericService.getImageUrl(id);
   }
 
   getFontSize() {

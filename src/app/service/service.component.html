@@ -72,8 +72,13 @@
       </div>
       <div class="hidden-xs col-lg-3 col-md-4 col-sm-5">
         <div *ngIf="main_service" id="contact-form">
-          <app-contact-form [mainService]="main_service" [subService]="selected_sub_service" [container]="getContactContainer()"></app-contact-form>
+          <app-contact-fixed-form [mainService]="main_service" [subService]="selected_sub_service" [container]="getContactContainer()"></app-contact-fixed-form>
         </div>
+      </div>
+    </div>
+    <div class="row hidden-sm hidden-md hidden-lg">
+      <div class="col-sm-12">
+          <app-contact-form [mainService]="main_service" [subService]="selected_sub_service"></app-contact-form>
       </div>
     </div>
   </div>
